@@ -63,56 +63,36 @@ tile_set = SubResource("TileSet_sugp2")
 
 [node name="lamp" parent="." unique_id=1729617490 instance=ExtResource("11_ya4ey")]
 position = Vector2(770, 152)
-collision_layer = 3
-collision_mask = 3
 
 [node name="bed" parent="." unique_id=955391343 instance=ExtResource("3_sugp2")]
 position = Vector2(672, 239)
-collision_layer = 3
-collision_mask = 3
 
 [node name="desk2" parent="." unique_id=1444029547 instance=ExtResource("5_tefeu")]
 position = Vector2(783, 347)
 rotation = 1.5707964
-collision_layer = 3
-collision_mask = 3
 
 [node name="wardrobe" parent="." unique_id=395797442 instance=ExtResource("4_tefeu")]
 position = Vector2(672, 92)
-collision_layer = 3
-collision_mask = 3
 
 [node name="maindesk" parent="." unique_id=1193669920 instance=ExtResource("2_tbgi4")]
 position = Vector2(303, 135)
-collision_layer = 3
-collision_mask = 3
 
 [node name="beanbag1" parent="." unique_id=228822516 instance=ExtResource("7_tipki")]
 position = Vector2(406, 407)
 rotation = 4.712389
-collision_layer = 3
-collision_mask = 3
 
 [node name="beanbag2" parent="." unique_id=104090653 instance=ExtResource("8_85g3d")]
 position = Vector2(552, 417)
 rotation = 3.1415927
-collision_layer = 3
-collision_mask = 3
 
 [node name="desk1" parent="." unique_id=2145630087 instance=ExtResource("4_tbgi4")]
 position = Vector2(578, 79)
-collision_layer = 3
-collision_mask = 3
 
 [node name="shelf" parent="." unique_id=1280816116 instance=ExtResource("9_choun")]
 position = Vector2(736, 417)
-collision_layer = 3
-collision_mask = 3
 
-[node name="chair" parent="." unique_id=553694332 instance=ExtResource("12_eb6dy")]
-position = Vector2(339, 186)
-collision_layer = 2
-collision_mask = 2
+[node name="chair" parent="." unique_id=1715445595 instance=ExtResource("12_eb6dy")]
+position = Vector2(335, 192)
 
 [node name="player" parent="." unique_id=2008801746 instance=ExtResource("2_0wfyh")]
 position = Vector2(145, 251)

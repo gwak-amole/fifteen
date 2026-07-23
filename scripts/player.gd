@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var anim: AnimatedSprite2D
+@export var push_speed = 20.0
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -46,3 +47,11 @@ func _physics_process(delta: float) -> void:
 	global_position.x = clampf(global_position.x, 32, screen_size.x - 32)
 	global_position.y = clampf(global_position.y, 32, screen_size.y - 32)
 	move_and_slide()
+	
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i);
+		var body = collision.get_collider();
+		
+		if body.has_method("push"):
+			var push_dir = -1 * collision.get_normal()
+			body.push(push_dir.normalized() * push_speed)
