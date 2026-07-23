@@ -112,13 +112,22 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3vyb7"]
 height = 38.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
+radius = 25.0
+height = 60.0
+
 [node name="player" type="CharacterBody2D" unique_id=2008801746]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2127205125]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_f1ej7")
-animation = &"walkdown"
-frame_progress = 0.8692446
+animation = &"idle"
+frame_progress = 0.36694565
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=458724056]
 shape = SubResource("CapsuleShape2D_3vyb7")
+
+[node name="interact_radius" type="Area2D" parent="." unique_id=560899892]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interact_radius" unique_id=1045885937]
+shape = SubResource("CapsuleShape2D_g2els")
