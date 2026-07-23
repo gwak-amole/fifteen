@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b6gslg4ugwtdv"]
+
+[ext_resource type="Texture2D" uid="uid://danig8kh7rijm" path="res://assets/map/furniture/beanbag2.png" id="1_hudoc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_62yx6"]
+radius = 31.016125
+
+[node name="beanbag1" type="StaticBody2D" unique_id=228822516]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1952595397]
+texture_filter = 1
+texture = ExtResource("1_hudoc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=186884559]
+position = Vector2(1, 4)
+shape = SubResource("CircleShape2D_62yx6")

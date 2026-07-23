@@ -8,7 +8,7 @@ var just_side = false;
 var just_up = false;
 
 func _ready() -> void:
-	just_up = true;
+	just_side = true;
 
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -38,7 +38,7 @@ func _physics_process(delta: float) -> void:
 			anim.play("idleside")
 		elif just_up:
 			anim.play("idleup")
-		else:
+		elif !just_side and !just_up:
 			anim.play("idle")
 	
 	var screen_size = get_viewport_rect().size

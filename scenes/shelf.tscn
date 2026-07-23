@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://josy77o4eli0"]
+
+[ext_resource type="Texture2D" uid="uid://cusvxs7lifrry" path="res://assets/map/furniture/shelf.png" id="1_eyi4x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xj574"]
+size = Vector2(122, 58)
+
+[node name="shelf" type="StaticBody2D" unique_id=1280816116]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1813362346]
+texture_filter = 1
+texture = ExtResource("1_eyi4x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1983995432]
+shape = SubResource("RectangleShape2D_xj574")
