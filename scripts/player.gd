@@ -7,6 +7,8 @@ const JUMP_VELOCITY = -400.0
 var just_side = false;
 var just_up = false;
 
+func _ready() -> void:
+	just_up = true;
 
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
