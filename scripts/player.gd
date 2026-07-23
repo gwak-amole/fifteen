@@ -38,4 +38,9 @@ func _physics_process(delta: float) -> void:
 			anim.play("idleup")
 		else:
 			anim.play("idle")
+	
+	var screen_size = get_viewport_rect().size
+	
+	global_position.x = clampf(global_position.x, 32, screen_size.x - 32)
+	global_position.y = clampf(global_position.y, 32, screen_size.y - 32)
 	move_and_slide()
