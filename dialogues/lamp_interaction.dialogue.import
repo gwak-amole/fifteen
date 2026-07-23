@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://br6xdwsxygh32"
+path="res://.godot/imported/lamp_interaction.dialogue-607ab3d860e17fde49641b6c358dcd90.tres"
+
+[deps]
+
+source_file="res://dialogues/lamp_interaction.dialogue"
+dest_files=["res://.godot/imported/lamp_interaction.dialogue-607ab3d860e17fde49641b6c358dcd90.tres"]
+
+[params]
+
+defaults=true

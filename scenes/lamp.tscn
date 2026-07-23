@@ -10,6 +10,7 @@ radius = 22.022715
 size = Vector2(57, 43)
 
 [node name="lamp" type="StaticBody2D" unique_id=1729617490]
+process_mode = 3
 script = ExtResource("1_hxjgs")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1861535844]

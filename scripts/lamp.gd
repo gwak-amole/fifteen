@@ -3,7 +3,7 @@ extends StaticBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	DialogueHandler.connect("checking_lamp", open_lamp)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -13,4 +13,11 @@ func _process(delta: float) -> void:
 
 func _on_interact_body_entered(body: Node2D) -> void:
 	if body.name == "player":
-		print("hello")
+		body.set_physics_process(false)
+		var resource = load("res://dialogues/lamp_interaction.dialogue")
+		DialogueManager.show_dialogue_balloon(resource, "start")
+		await DialogueManager.dialogue_ended
+		body.set_physics_process(true)
+
+func open_lamp():
+	print("hello works")

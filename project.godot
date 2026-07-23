@@ -14,12 +14,29 @@ config/name="fifteen"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+DialogueManager="*uid://c3rodes2l3gxb"
+DialogueHandler="*uid://0k11lidks7gk"
+
+[dialogue_manager]
+
+runtime/balloon_path="uid://bwrhs3qwe7q6q"
+
 [display]
 
 window/size/viewport_width=960
 window/size/viewport_height=540
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_width"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/godot_super-wakatime/plugin.cfg")
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://dialogues/lamp_interaction.dialogue")
 
 [physics]
 
