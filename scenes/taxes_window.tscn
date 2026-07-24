@@ -1,0 +1,240 @@
+[gd_scene format=3 uid="uid://cef0480xm5qxd"]
+
+[ext_resource type="Texture2D" uid="uid://ckmqj05niurwf" path="res://assets/computer/desktop/blank_window.png" id="1_qbxjf"]
+[ext_resource type="Script" uid="uid://dn0j0ei0dge3g" path="res://scripts/taxes_window.gd" id="1_rp86d"]
+[ext_resource type="Texture2D" uid="uid://3f8lp086t0po" path="res://assets/computer/desktop/xbutton.png" id="2_jbhxw"]
+[ext_resource type="Texture2D" uid="uid://sqfn7fbu1ra3" path="res://assets/computer/desktop/txtfile.png" id="3_rp86d"]
+[ext_resource type="FontFile" uid="uid://dui6j34xrkei6" path="res://fonts/DotGothic16 copy/DotGothic16-Regular.ttf" id="4_mlh1y"]
+[ext_resource type="Texture2D" uid="uid://v5vdtqhwjafk" path="res://assets/computer/desktop/txtviewer.png" id="6_mlh1y"]
+[ext_resource type="Script" uid="uid://dco1axyeslv2y" path="res://scripts/txt_viewer.gd" id="7_on7te"]
+
+[node name="taxes_window" type="Control" unique_id=504178834 node_paths=PackedStringArray("viewer_2007", "viewer_2006", "viewer_2005")]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rp86d")
+viewer_2007 = NodePath("2007_viewer")
+viewer_2006 = NodePath("2006_viewer")
+viewer_2005 = NodePath("2005_viewer")
+
+[node name="window_back" type="TextureRect" parent="." unique_id=1503141535]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.0
+offset_top = -105.0
+offset_right = 190.0
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_qbxjf")
+
+[node name="xbutton" type="TextureButton" parent="." unique_id=1635917178]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 162.0
+offset_top = -103.0
+offset_right = 184.0
+offset_bottom = -81.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_jbhxw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=983017839]
+layout_mode = 0
+offset_left = -166.0
+offset_top = -45.0
+offset_right = 10.0
+offset_bottom = 14.0
+
+[node name="2007" type="TextureButton" parent="HBoxContainer" unique_id=1458465560]
+layout_mode = 2
+texture_normal = ExtResource("3_rp86d")
+
+[node name="Label" type="Label" parent="HBoxContainer/2007" unique_id=2064238696]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -12.0
+offset_top = -1.0
+offset_right = 12.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_mlh1y")
+theme_override_font_sizes/font_size = 12
+text = "2007"
+horizontal_alignment = 1
+
+[node name="2006" type="TextureButton" parent="HBoxContainer" unique_id=336260698]
+layout_mode = 2
+texture_normal = ExtResource("3_rp86d")
+
+[node name="Label" type="Label" parent="HBoxContainer/2006" unique_id=1845890109]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -12.0
+offset_top = -1.0
+offset_right = 12.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_mlh1y")
+theme_override_font_sizes/font_size = 12
+text = "2006"
+horizontal_alignment = 1
+
+[node name="2005" type="TextureButton" parent="HBoxContainer" unique_id=576331324]
+layout_mode = 2
+texture_normal = ExtResource("3_rp86d")
+
+[node name="Label" type="Label" parent="HBoxContainer/2005" unique_id=293010912]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -12.0
+offset_top = -1.0
+offset_right = 12.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_mlh1y")
+theme_override_font_sizes/font_size = 12
+text = "2005"
+horizontal_alignment = 1
+
+[node name="2007_viewer" type="TextureRect" parent="." unique_id=138351585]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.0
+offset_top = -165.0
+offset_right = 130.0
+offset_bottom = 165.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_mlh1y")
+script = ExtResource("7_on7te")
+
+[node name="Label" type="Label" parent="2007_viewer" unique_id=1993111957]
+layout_mode = 1
+offset_left = 10.0
+offset_top = 32.0
+offset_right = 34.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_mlh1y")
+theme_override_font_sizes/font_size = 12
+text = "in 2007 I totally did my taxes."
+horizontal_alignment = 1
+
+[node name="xbutton7" type="TextureButton" parent="2007_viewer" unique_id=47547706]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("2_jbhxw")
+
+[node name="2006_viewer" type="TextureRect" parent="." unique_id=987349546]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.0
+offset_top = -165.0
+offset_right = 130.0
+offset_bottom = 165.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_mlh1y")
+script = ExtResource("7_on7te")
+
+[node name="Label" type="Label" parent="2006_viewer" unique_id=691922186]
+layout_mode = 1
+offset_left = 10.0
+offset_top = 32.0
+offset_right = 253.0
+offset_bottom = 71.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_mlh1y")
+theme_override_font_sizes/font_size = 12
+text = "I like otters more than dogs sorry not sorry :)"
+autowrap_mode = 3
+
+[node name="xbutton6" type="TextureButton" parent="2006_viewer" unique_id=832954908]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("2_jbhxw")
+
+[node name="2005_viewer" type="TextureRect" parent="." unique_id=1006641647]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.0
+offset_top = -165.0
+offset_right = 130.0
+offset_bottom = 165.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_mlh1y")
+script = ExtResource("7_on7te")
+
+[node name="Label" type="Label" parent="2005_viewer" unique_id=1322187244]
+layout_mode = 1
+offset_left = 9.0
+offset_top = 300.0
+offset_right = 247.0
+offset_bottom = 318.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_mlh1y")
+theme_override_font_sizes/font_size = 12
+text = "look in trash for you know what"
+autowrap_mode = 3
+
+[node name="xbutton5" type="TextureButton" parent="2005_viewer" unique_id=1788430964]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("2_jbhxw")
+
+[connection signal="pressed" from="xbutton" to="." method="_on_xbutton_pressed"]
+[connection signal="pressed" from="HBoxContainer/2007" to="." method="_on_2007_pressed"]
+[connection signal="pressed" from="HBoxContainer/2006" to="." method="_on_2006_pressed"]
+[connection signal="pressed" from="HBoxContainer/2005" to="." method="_on_2005_pressed"]
+[connection signal="pressed" from="2007_viewer/xbutton7" to="2007_viewer" method="_on_xbutton_7_pressed"]
+[connection signal="pressed" from="2006_viewer/xbutton6" to="2006_viewer" method="_on_xbutton_6_pressed"]
+[connection signal="pressed" from="2005_viewer/xbutton5" to="2005_viewer" method="_on_xbutton_5_pressed"]

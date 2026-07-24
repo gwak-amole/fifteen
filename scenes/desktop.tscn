@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://c85wxvoo7uetv"]
 
+[ext_resource type="Script" uid="uid://b8vwt16n885kf" path="res://scripts/desktop.gd" id="1_pkmwo"]
 [ext_resource type="Texture2D" uid="uid://c656a0bbclvcl" path="res://assets/computer/desktop/desktop.png" id="1_xxa2h"]
 [ext_resource type="Texture2D" uid="uid://dqblvo4ptnv0h" path="res://assets/computer/desktop/start_button_desktop.png" id="2_81rff"]
 [ext_resource type="Texture2D" uid="uid://ctm0fxrjhym7u" path="res://assets/computer/desktop/time.png" id="3_ox5hf"]
@@ -16,6 +17,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [node name="desktop" type="CanvasLayer" unique_id=1886967312]
+script = ExtResource("1_pkmwo")
 
 [node name="Control" type="Control" parent="." unique_id=1970446500]
 texture_filter = 1
@@ -152,3 +154,5 @@ theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxFlat_pkmwo")
 text = "trash"
 horizontal_alignment = 1
+
+[connection signal="pressed" from="Control/left_apps/taxes" to="." method="_on_taxes_pressed"]
