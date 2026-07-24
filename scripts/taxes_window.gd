@@ -2,7 +2,7 @@ extends Control
 @export var viewer_2007: TextureRect
 @export var viewer_2006: TextureRect
 @export var viewer_2005: TextureRect
-signal make_me_front(name: String)
+signal make_me_front(arg: String)
 
 
 
@@ -42,3 +42,5 @@ func _on_title_bar_make_front() -> void:
 		make_me_front.emit("taxes")
 	elif name.contains("vacation"):
 		make_me_front.emit("vacation")
+	elif name.contains("doucments"):
+		make_me_front.emit("documents")

@@ -1,0 +1,240 @@
+[gd_scene format=3 uid="uid://r46dytoontoj"]
+
+[ext_resource type="Script" uid="uid://dn0j0ei0dge3g" path="res://scripts/taxes_window.gd" id="1_5uljl"]
+[ext_resource type="Texture2D" uid="uid://ckmqj05niurwf" path="res://assets/computer/desktop/blank_window.png" id="2_cu5hh"]
+[ext_resource type="Texture2D" uid="uid://3f8lp086t0po" path="res://assets/computer/desktop/xbutton.png" id="3_53jjc"]
+[ext_resource type="Texture2D" uid="uid://sqfn7fbu1ra3" path="res://assets/computer/desktop/txtfile.png" id="4_kefor"]
+[ext_resource type="FontFile" uid="uid://dui6j34xrkei6" path="res://fonts/DotGothic16 copy/DotGothic16-Regular.ttf" id="5_ay8iw"]
+[ext_resource type="Texture2D" uid="uid://v5vdtqhwjafk" path="res://assets/computer/desktop/txtviewer.png" id="6_on4un"]
+[ext_resource type="Script" uid="uid://bygxadtr5itrh" path="res://scripts/nothing_viewer.gd" id="7_cu5hh"]
+[ext_resource type="Script" uid="uid://2rtx54ffd04d" path="res://scripts/title_bar_viewer.gd" id="8_gtenb"]
+[ext_resource type="Script" uid="uid://dj8pb2qbrlxay" path="res://scripts/title_bar.gd" id="9_nq344"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rpegq"]
+
+[node name="documents_window" type="Control" unique_id=504178834 node_paths=PackedStringArray("viewer_2007", "viewer_2006", "viewer_2005")]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5uljl")
+viewer_2007 = NodePath("nothing viewer")
+viewer_2006 = NodePath("msg viewer")
+viewer_2005 = NodePath("")
+
+[node name="window_back" type="TextureRect" parent="." unique_id=1503141535]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.0
+offset_top = -105.0
+offset_right = 190.0
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_cu5hh")
+
+[node name="xbutton" type="TextureButton" parent="." unique_id=1635917178]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 162.0
+offset_top = -103.0
+offset_right = 184.0
+offset_bottom = -81.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_53jjc")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=983017839]
+layout_mode = 0
+offset_left = -166.0
+offset_top = -45.0
+offset_right = 10.0
+offset_bottom = 14.0
+
+[node name="nothing" type="TextureButton" parent="HBoxContainer" unique_id=1458465560]
+layout_mode = 2
+texture_normal = ExtResource("4_kefor")
+
+[node name="Label" type="Label" parent="HBoxContainer/nothing" unique_id=2064238696]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -12.0
+offset_top = -1.0
+offset_right = 12.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_ay8iw")
+theme_override_font_sizes/font_size = 12
+text = "nothing"
+horizontal_alignment = 1
+
+[node name="backup" type="TextureButton" parent="HBoxContainer" unique_id=336260698]
+layout_mode = 2
+texture_normal = ExtResource("4_kefor")
+
+[node name="Label" type="Label" parent="HBoxContainer/backup" unique_id=1845890109]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -12.0
+offset_top = -1.0
+offset_right = 12.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_ay8iw")
+theme_override_font_sizes/font_size = 12
+text = "back up"
+horizontal_alignment = 1
+
+[node name="nothing viewer" type="TextureRect" parent="." unique_id=138351585]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.0
+offset_top = -165.0
+offset_right = 130.0
+offset_bottom = 165.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_on4un")
+script = ExtResource("7_cu5hh")
+
+[node name="Label" type="Label" parent="nothing viewer" unique_id=1993111957]
+layout_mode = 1
+offset_left = 10.0
+offset_top = 32.0
+offset_right = 34.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_ay8iw")
+theme_override_font_sizes/font_size = 12
+text = "actually nothing"
+horizontal_alignment = 1
+
+[node name="xbutton7" type="TextureButton" parent="nothing viewer" unique_id=47547706]
+layout_mode = 0
+offset_left = 231.0
+offset_top = 3.0
+offset_right = 253.0
+offset_bottom = 25.0
+texture_normal = ExtResource("3_53jjc")
+
+[node name="title_bar" type="Panel" parent="nothing viewer" unique_id=1114142528 node_paths=PackedStringArray("window")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -124.0
+offset_top = 3.0
+offset_right = 96.0
+offset_bottom = 26.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_rpegq")
+script = ExtResource("8_gtenb")
+window = NodePath("..")
+
+[node name="msg viewer" type="TextureRect" parent="." unique_id=987349546]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.0
+offset_top = -165.0
+offset_right = 130.0
+offset_bottom = 165.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_on4un")
+script = ExtResource("7_cu5hh")
+
+[node name="Label" type="Label" parent="msg viewer" unique_id=691922186]
+layout_mode = 1
+offset_left = 10.0
+offset_top = 32.0
+offset_right = 253.0
+offset_bottom = 71.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_ay8iw")
+theme_override_font_sizes/font_size = 12
+text = "roman - 6:14 PM: the buyer changed the meeting place again
+AM - 6:15 PM:  where
+roman - 6:15 PM: the yard yk that one
+AM - 6:15 PM: no that's too exposed
+roman - 6:15 PM: ugh
+AM - 6:16 PM: anyhow don't write anymore here
+roman - 6:16 PM: i thought u said this account was clean
+AM 6:18 PM: you can never be sure"
+autowrap_mode = 3
+
+[node name="xbutton6" type="TextureButton" parent="msg viewer" unique_id=832954908]
+layout_mode = 0
+offset_left = 231.0
+offset_top = 3.0
+offset_right = 253.0
+offset_bottom = 25.0
+texture_normal = ExtResource("3_53jjc")
+
+[node name="title_bar" type="Panel" parent="msg viewer" unique_id=1912933926 node_paths=PackedStringArray("window")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -124.0
+offset_top = 3.0
+offset_right = 96.0
+offset_bottom = 26.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_rpegq")
+script = ExtResource("8_gtenb")
+window = NodePath("..")
+
+[node name="title_bar" type="Panel" parent="." unique_id=873600373 node_paths=PackedStringArray("window")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -182.0
+offset_top = -102.0
+offset_right = 160.0
+offset_bottom = -81.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_rpegq")
+script = ExtResource("9_nq344")
+window = NodePath("..")
+
+[connection signal="pressed" from="xbutton" to="." method="_on_xbutton_pressed"]
+[connection signal="pressed" from="HBoxContainer/nothing" to="." method="_on_2007_pressed"]
+[connection signal="pressed" from="HBoxContainer/backup" to="." method="_on_2006_pressed"]
+[connection signal="pressed" from="nothing viewer/xbutton7" to="nothing viewer" method="_on_xbutton_7_pressed"]
+[connection signal="pressed" from="msg viewer/xbutton6" to="msg viewer" method="_on_xbutton_6_pressed"]
+[connection signal="make_front" from="title_bar" to="." method="_on_title_bar_make_front"]

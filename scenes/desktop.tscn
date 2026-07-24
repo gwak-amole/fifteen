@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://w215fomsd6xh" path="res://assets/computer/desktop/directory.png" id="6_veafp"]
 [ext_resource type="Texture2D" uid="uid://dedty888htyrt" path="res://assets/computer/desktop/trashbin.png" id="7_veafp"]
 [ext_resource type="PackedScene" uid="uid://cef0480xm5qxd" path="res://scenes/taxes_window.tscn" id="9_gl26t"]
+[ext_resource type="PackedScene" uid="uid://r46dytoontoj" path="res://scenes/documents_window.tscn" id="10_nikxi"]
 [ext_resource type="PackedScene" uid="uid://dwk2hau3nyha8" path="res://scenes/family_window.tscn" id="10_vcvwy"]
 [ext_resource type="PackedScene" uid="uid://sls065aobdo2" path="res://scenes/vacation_window.tscn" id="11_nikxi"]
 
@@ -17,11 +18,12 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[node name="desktop" type="CanvasLayer" unique_id=1886967312 node_paths=PackedStringArray("taxes_window", "fam_window", "vacation_window")]
+[node name="desktop" type="CanvasLayer" unique_id=1886967312 node_paths=PackedStringArray("taxes_window", "fam_window", "vacation_window", "documents_window")]
 script = ExtResource("1_pkmwo")
 taxes_window = NodePath("taxes_window")
 fam_window = NodePath("family_window")
 vacation_window = NodePath("vacation_window")
+documents_window = NodePath("documents_window")
 
 [node name="Control" type="Control" parent="." unique_id=1970446500]
 texture_filter = 1
@@ -152,6 +154,9 @@ visible = false
 [node name="vacation_window" parent="." unique_id=717056588 instance=ExtResource("11_nikxi")]
 visible = false
 
+[node name="documents_window" parent="." unique_id=1538191277 instance=ExtResource("10_nikxi")]
+
+[connection signal="pressed" from="Control/left_apps/documents" to="." method="_on_documents_pressed"]
 [connection signal="pressed" from="Control/left_apps/taxes" to="." method="_on_taxes_pressed"]
 [connection signal="pressed" from="Control/left_apps/family" to="." method="_on_family_pressed"]
 [connection signal="pressed" from="Control/left_apps/vacation" to="." method="_on_vacation_pressed"]
@@ -161,3 +166,5 @@ visible = false
 [connection signal="make_me_front" from="family_window" to="." method="_on_family_window_make_me_front"]
 [connection signal="gui_input" from="vacation_window" to="." method="_on_vacation_window_gui_input"]
 [connection signal="make_me_front" from="vacation_window" to="." method="_on_vacation_window_make_me_front"]
+[connection signal="gui_input" from="documents_window" to="." method="_on_documents_window_gui_input"]
+[connection signal="make_me_front" from="documents_window" to="." method="_on_documents_window_make_me_front"]
