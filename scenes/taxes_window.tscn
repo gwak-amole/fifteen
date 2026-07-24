@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://v5vdtqhwjafk" path="res://assets/computer/desktop/txtviewer.png" id="6_mlh1y"]
 [ext_resource type="Script" uid="uid://dco1axyeslv2y" path="res://scripts/txt_viewer.gd" id="7_on7te"]
 [ext_resource type="Script" uid="uid://dj8pb2qbrlxay" path="res://scripts/title_bar.gd" id="8_2ur07"]
+[ext_resource type="Script" uid="uid://2rtx54ffd04d" path="res://scripts/title_bar_viewer.gd" id="8_rpegq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rpegq"]
 
@@ -133,7 +134,6 @@ text = "2005"
 horizontal_alignment = 1
 
 [node name="2007_viewer" type="TextureRect" parent="." unique_id=138351585]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -163,9 +163,25 @@ horizontal_alignment = 1
 
 [node name="xbutton7" type="TextureButton" parent="2007_viewer" unique_id=47547706]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 231.0
+offset_top = 3.0
+offset_right = 253.0
+offset_bottom = 25.0
 texture_normal = ExtResource("2_jbhxw")
+
+[node name="title_bar" type="Panel" parent="2007_viewer" unique_id=1114142528 node_paths=PackedStringArray("window")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -124.0
+offset_top = 3.0
+offset_right = 96.0
+offset_bottom = 26.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_rpegq")
+script = ExtResource("8_rpegq")
+window = NodePath("..")
 
 [node name="2006_viewer" type="TextureRect" parent="." unique_id=987349546]
 visible = false
@@ -198,9 +214,25 @@ autowrap_mode = 3
 
 [node name="xbutton6" type="TextureButton" parent="2006_viewer" unique_id=832954908]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 231.0
+offset_top = 3.0
+offset_right = 253.0
+offset_bottom = 25.0
 texture_normal = ExtResource("2_jbhxw")
+
+[node name="title_bar" type="Panel" parent="2006_viewer" unique_id=1912933926 node_paths=PackedStringArray("window")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -124.0
+offset_top = 3.0
+offset_right = 96.0
+offset_bottom = 26.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_rpegq")
+script = ExtResource("8_rpegq")
+window = NodePath("..")
 
 [node name="2005_viewer" type="TextureRect" parent="." unique_id=1006641647]
 visible = false
@@ -233,19 +265,35 @@ autowrap_mode = 3
 
 [node name="xbutton5" type="TextureButton" parent="2005_viewer" unique_id=1788430964]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 231.0
+offset_top = 3.0
+offset_right = 253.0
+offset_bottom = 25.0
 texture_normal = ExtResource("2_jbhxw")
+
+[node name="title_bar" type="Panel" parent="2005_viewer" unique_id=41072310 node_paths=PackedStringArray("window")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -124.0
+offset_top = 3.0
+offset_right = 96.0
+offset_bottom = 26.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_rpegq")
+script = ExtResource("8_rpegq")
+window = NodePath("..")
 
 [node name="title_bar" type="Panel" parent="." unique_id=873600373 node_paths=PackedStringArray("window")]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -184.0
-offset_top = -105.0
-offset_right = 184.0
-offset_bottom = -79.0
+offset_left = -182.0
+offset_top = -102.0
+offset_right = 160.0
+offset_bottom = -81.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_rpegq")
 script = ExtResource("8_2ur07")
