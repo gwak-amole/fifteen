@@ -1,11 +1,19 @@
 [gd_scene format=3 uid="uid://dmgosfav8fg0d"]
 
 [ext_resource type="Texture2D" uid="uid://doppkaxbe1em3" path="res://assets/map/furniture/wardrobe.png" id="1_31rhj"]
+[ext_resource type="Script" uid="uid://w7eeijyh051d" path="res://scripts/wardrobe.gd" id="1_wla1g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wla1g"]
 size = Vector2(119, 54)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_31rhj"]
+size = Vector2(86, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_psa3u"]
+size = Vector2(27, 41)
+
 [node name="wardrobe" type="StaticBody2D" unique_id=395797442]
+script = ExtResource("1_wla1g")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1325028311]
 texture_filter = 1
@@ -14,3 +22,20 @@ texture = ExtResource("1_31rhj")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1900776376]
 position = Vector2(-0.5, -1)
 shape = SubResource("RectangleShape2D_wla1g")
+
+[node name="interaction" type="Area2D" parent="." unique_id=920040639]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interaction" unique_id=1345498564]
+position = Vector2(-15, 10.5)
+shape = SubResource("RectangleShape2D_31rhj")
+
+[node name="interaction_mirror" type="Area2D" parent="." unique_id=1300733360]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interaction_mirror" unique_id=1932785747]
+position = Vector2(46.5, 10.5)
+shape = SubResource("RectangleShape2D_psa3u")
+
+[connection signal="body_entered" from="interaction" to="." method="_on_interaction_body_entered"]
+[connection signal="body_exited" from="interaction" to="." method="_on_interaction_body_exited"]
+[connection signal="body_entered" from="interaction_mirror" to="." method="_on_interaction_mirror_body_entered"]
+[connection signal="body_exited" from="interaction_mirror" to="." method="_on_interaction_mirror_body_exited"]

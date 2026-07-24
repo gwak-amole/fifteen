@@ -1,11 +1,16 @@
 [gd_scene format=3 uid="uid://evky6ducrq5q"]
 
+[ext_resource type="Script" uid="uid://dqa6e5iigrbtu" path="res://scripts/beanbag.gd" id="1_62yx6"]
 [ext_resource type="Texture2D" uid="uid://dngomaup4jvww" path="res://assets/map/furniture/beanbag1.png" id="1_h1p82"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_62yx6"]
 radius = 31.016125
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_6jo4d"]
+radius = 48.010414
+
 [node name="beanbag1" type="StaticBody2D" unique_id=228822516]
+script = ExtResource("1_62yx6")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1952595397]
 texture_filter = 1
@@ -14,3 +19,11 @@ texture = ExtResource("1_h1p82")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=186884559]
 position = Vector2(2, 5)
 shape = SubResource("CircleShape2D_62yx6")
+
+[node name="interaction" type="Area2D" parent="." unique_id=1522586066]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interaction" unique_id=706381244]
+shape = SubResource("CircleShape2D_6jo4d")
+
+[connection signal="body_entered" from="interaction" to="." method="_on_interaction_body_entered"]
+[connection signal="body_exited" from="interaction" to="." method="_on_interaction_body_exited"]

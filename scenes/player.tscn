@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bmxkihh1bcwuu" path="res://assets/mainchara/mainchara.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://cbr0shtxsa737" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://dw76vtwxy6p55" path="res://assets/mainchara/e_interact.png" id="3_qhqgy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("1_3vyb7")
@@ -155,9 +156,10 @@ height = 38.0
 radius = 25.0
 height = 60.0
 
-[node name="player" type="CharacterBody2D" unique_id=2008801746 node_paths=PackedStringArray("anim")]
+[node name="player" type="CharacterBody2D" unique_id=2008801746 node_paths=PackedStringArray("anim", "interact")]
 script = ExtResource("1_g2els")
 anim = NodePath("AnimatedSprite2D")
+interact = NodePath("e_interact")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2127205125]
 texture_filter = 1
@@ -172,3 +174,11 @@ shape = SubResource("CapsuleShape2D_3vyb7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interact_radius" unique_id=1045885937]
 shape = SubResource("CapsuleShape2D_g2els")
+
+[node name="e_interact" type="TextureRect" parent="." unique_id=1327902478]
+texture_filter = 1
+offset_left = 18.0
+offset_top = -6.0
+offset_right = 33.0
+offset_bottom = 9.0
+texture = ExtResource("3_qhqgy")

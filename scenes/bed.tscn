@@ -1,11 +1,16 @@
 [gd_scene format=3 uid="uid://c750jqupm6nbp"]
 
 [ext_resource type="Texture2D" uid="uid://cdvh4do5kcqbt" path="res://assets/map/furniture/bed.png" id="1_akt7f"]
+[ext_resource type="Script" uid="uid://by3sq7dxu5fo2" path="res://scripts/bed.gd" id="1_fqty4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fqty4"]
 size = Vector2(249, 130)
 
-[node name="StaticBody2D" type="StaticBody2D" unique_id=955391343]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_raxto"]
+size = Vector2(255, 135)
+
+[node name="bed" type="StaticBody2D" unique_id=955391343]
+script = ExtResource("1_fqty4")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1749396747]
 texture_filter = 1
@@ -14,3 +19,12 @@ texture = ExtResource("1_akt7f")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=306695423]
 position = Vector2(-2.5, -4)
 shape = SubResource("RectangleShape2D_fqty4")
+
+[node name="interaction" type="Area2D" parent="." unique_id=280600206]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interaction" unique_id=2066484333]
+position = Vector2(-4.5, 0.5)
+shape = SubResource("RectangleShape2D_raxto")
+
+[connection signal="body_entered" from="interaction" to="." method="_on_interaction_body_entered"]
+[connection signal="body_exited" from="interaction" to="." method="_on_interaction_body_exited"]

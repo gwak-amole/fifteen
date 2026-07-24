@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://ydl4n5tdlrrs" path="res://assets/safe_inspection/watch_select.png" id="8_41tkx"]
 [ext_resource type="Texture2D" uid="uid://rfxih6n2chh3" path="res://assets/safe_inspection/shipments.png" id="9_8r6pu"]
 [ext_resource type="Texture2D" uid="uid://dgg14c6c3mtac" path="res://assets/safe_inspection/shipments_select.png" id="10_shl4b"]
+[ext_resource type="StyleBox" uid="uid://cshlc3v64nf8e" path="res://scenes/ui/done_button_hover.tres" id="11_rtxfg"]
+[ext_resource type="Texture2D" uid="uid://dyrrmhdg7b13r" path="res://assets/safe_inspection/shipment_paper.png" id="12_g01j7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_homnf"]
 bg_color = Color(0.23392546, 0.23392549, 0.23392531, 1)
@@ -29,6 +31,18 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g01j7"]
+bg_color = Color(0.6795125, 0.33008245, 1.92523e-07, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.9617471, 0.38866496, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ewslm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efj2v"]
@@ -47,19 +61,39 @@ corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5i6t5"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_homnf"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtxfg"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lxtee"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_41tkx"]
+bg_color = Color(0.6, 0.6, 0.6, 0.39607844)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
-[node name="safe" type="CanvasLayer" unique_id=139497989 node_paths=PackedStringArray("input_code", "line_edit", "unlocked_safe", "locked_safe", "shipment_button")]
+[node name="safe" type="CanvasLayer" unique_id=139497989 node_paths=PackedStringArray("input_code", "line_edit", "unlocked_safe", "locked_safe", "shipment_button", "shipment_paper")]
 script = ExtResource("1_ewslm")
 input_code = NodePath("locked/input_code")
 line_edit = NodePath("locked/input_code/LineEdit")
 unlocked_safe = NodePath("unlocked")
 locked_safe = NodePath("locked")
 shipment_button = NodePath("unlocked/shipment")
+shipment_paper = NodePath("unlocked/shipment_paper")
 
 [node name="locked" type="Control" parent="." unique_id=1923838041]
+visible = false
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
@@ -94,6 +128,23 @@ theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_homnf")
 theme_override_styles/hover = SubResource("StyleBoxFlat_lxtee")
 text = "CODE"
+
+[node name="done" type="Button" parent="locked" unique_id=608101230]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.45
+anchor_top = 0.7314815
+anchor_right = 0.54375
+anchor_bottom = 0.78333336
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_ewslm")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_g01j7")
+theme_override_styles/hover = ExtResource("11_rtxfg")
+theme_override_styles/focus = ExtResource("11_rtxfg")
+text = "I'm done"
+metadata/_edit_use_anchors_ = true
 
 [node name="input_code" type="Panel" parent="locked" unique_id=233536892]
 layout_mode = 1
@@ -167,13 +218,13 @@ anchor_bottom = 0.5
 offset_left = 141.0
 offset_top = -86.0
 offset_right = 230.0
-offset_bottom = 33.0
+offset_bottom = 41.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_ewslm")
 theme_override_font_sizes/font_size = 48
-theme_override_styles/normal = SubResource("StyleBoxEmpty_homnf")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_lxtee")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rtxfg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_41tkx")
 text = ">"
 
 [node name="unlocked" type="Control" parent="." unique_id=1964965289]
@@ -187,18 +238,13 @@ grow_vertical = 2
 
 [node name="safe" type="TextureRect" parent="unlocked" unique_id=1273526186]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -480.0
-offset_top = -270.0
-offset_right = 480.0
-offset_bottom = 270.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_homnf")
+metadata/_edit_use_anchors_ = true
 
 [node name="goldbars" type="TextureButton" parent="unlocked" unique_id=1400007598]
 layout_mode = 0
@@ -212,20 +258,75 @@ texture_hover = ExtResource("6_rtxfg")
 [node name="watch" type="TextureButton" parent="unlocked" unique_id=1029314774]
 layout_mode = 0
 offset_left = 324.0
-offset_top = 288.0
+offset_top = 289.0
 offset_right = 414.0
-offset_bottom = 383.0
+offset_bottom = 384.0
 texture_normal = ExtResource("7_g01j7")
 texture_hover = ExtResource("8_41tkx")
 
 [node name="shipment" type="TextureButton" parent="unlocked" unique_id=985942429]
 layout_mode = 0
-offset_left = 248.0
-offset_top = 295.0
-offset_right = 338.0
-offset_bottom = 390.0
+offset_left = 251.0
+offset_top = 322.0
+offset_right = 341.0
+offset_bottom = 382.0
 texture_normal = ExtResource("9_8r6pu")
 texture_hover = ExtResource("10_shl4b")
 
+[node name="done" type="Button" parent="unlocked" unique_id=451392428]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.45
+anchor_top = 0.7314815
+anchor_right = 0.54375
+anchor_bottom = 0.78333336
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_ewslm")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_g01j7")
+theme_override_styles/hover = ExtResource("11_rtxfg")
+theme_override_styles/focus = ExtResource("11_rtxfg")
+text = "I'm done"
+metadata/_edit_use_anchors_ = true
+
+[node name="shipment_paper" type="TextureRect" parent="unlocked" unique_id=2063669180]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -212.0
+offset_right = 110.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_g01j7")
+
+[node name="Label" type="Label" parent="unlocked/shipment_paper" unique_id=1091403858]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 12.0
+offset_right = 177.0
+offset_bottom = 177.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ewslm")
+theme_override_font_sizes/font_size = 12
+text = "TOP SECRET
+WEAPON SHIPMENT
+Buyer: Red Falcon
+Contents:
+• 50 Assault Rifles
+• 20 Crates of Ammunition
+Payment Received: $450,000
+Approved: Alex M."
+
 [connection signal="pressed" from="locked/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="locked/done" to="." method="_on_done_pressed"]
 [connection signal="pressed" from="locked/input_code/code_go" to="." method="_on_code_go_pressed"]
+[connection signal="pressed" from="unlocked/goldbars" to="." method="_on_goldbars_pressed"]
+[connection signal="pressed" from="unlocked/watch" to="." method="_on_watch_pressed"]
+[connection signal="pressed" from="unlocked/shipment" to="." method="_on_shipment_pressed"]
+[connection signal="pressed" from="unlocked/done" to="." method="_on_done_pressed"]

@@ -1,11 +1,16 @@
 [gd_scene format=3 uid="uid://d2w80euxrp67m"]
 
 [ext_resource type="Texture2D" uid="uid://btym4hiyjl2yn" path="res://assets/map/furniture/desk1.png" id="1_6owrc"]
+[ext_resource type="Script" uid="uid://d11bbkqaxd5u5" path="res://scripts/desk_1.gd" id="1_a7lsj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6owrc"]
 size = Vector2(60, 28)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a7lsj"]
+size = Vector2(56, 27)
+
 [node name="desk1" type="StaticBody2D" unique_id=1444029547]
+script = ExtResource("1_a7lsj")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1967168869]
 texture_filter = 1
@@ -13,3 +18,12 @@ texture = ExtResource("1_6owrc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=421645228]
 shape = SubResource("RectangleShape2D_6owrc")
+
+[node name="interaction" type="Area2D" parent="." unique_id=105900516]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interaction" unique_id=693905590]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_a7lsj")
+
+[connection signal="body_entered" from="interaction" to="." method="_on_interaction_body_entered"]
+[connection signal="body_exited" from="interaction" to="." method="_on_interaction_body_exited"]

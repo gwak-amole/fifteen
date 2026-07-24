@@ -5,12 +5,13 @@ extends CanvasLayer
 @export var unlocked_safe: Control
 @export var locked_safe: Control
 @export var shipment_button: TextureButton
-
+@export var shipment_paper: TextureRect
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	DialogueHandler.connect("take_shipment", hide_shipment)
+	DialogueHandler.connect("taking_shipment", hide_shipment)
 	input_code.hide();
+	shipment_paper.hide();
 	unlocked_safe.hide();
 	locked_safe.show();
 
@@ -30,7 +31,35 @@ func _on_code_go_pressed() -> void:
 		unlocked_safe.show()
 		locked_safe.hide()
 	else:
-		print("access denied")
+		line_edit.text = ""
+		line_edit.placeholder_text = "XXXX"
 
 func hide_shipment():
 	shipment_button.hide()
+
+
+func _on_shipment_pressed() -> void:
+	shipment_paper.show()
+	var resource = load("res://dialogues/safe_interaction.dialogue")
+	DialogueManager.show_dialogue_balloon(resource, "shipment")
+	await DialogueManager.dialogue_ended;
+	shipment_button.hide();
+	shipment_paper.hide()
+
+
+func _on_watch_pressed() -> void:
+	var resource = load("res://dialogues/safe_interaction.dialogue")
+	DialogueManager.show_dialogue_balloon(resource, "watch")
+
+
+func _on_goldbars_pressed() -> void:
+	var resource = load("res://dialogues/safe_interaction.dialogue")
+	DialogueManager.show_dialogue_balloon(resource, "gold_bars")
+
+
+func _on_done_pressed() -> void:
+	if DialogueHandler.took_files:
+		DialogueHandler.end_game();
+		hide();
+	else:
+		hide();

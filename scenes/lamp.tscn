@@ -28,3 +28,4 @@ shape = SubResource("RectangleShape2D_72t4t")
 
 [connection signal="area_entered" from="interact" to="." method="_on_interact_area_entered"]
 [connection signal="body_entered" from="interact" to="." method="_on_interact_body_entered"]
+[connection signal="body_exited" from="interact" to="." method="_on_interact_body_exited"]

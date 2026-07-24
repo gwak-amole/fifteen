@@ -26,3 +26,4 @@ position = Vector2(0, -24)
 shape = SubResource("RectangleShape2D_eyi4x")
 
 [connection signal="body_entered" from="interaction" to="." method="_on_interaction_body_entered"]
+[connection signal="body_exited" from="interaction" to="." method="_on_interaction_body_exited"]

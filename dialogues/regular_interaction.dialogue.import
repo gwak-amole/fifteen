@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cv254wabd1011"
+path="res://.godot/imported/regular_interaction.dialogue-c314b6b4e5d1afcdf7d9018083ab691f.tres"
+
+[deps]
+
+source_file="res://dialogues/regular_interaction.dialogue"
+dest_files=["res://.godot/imported/regular_interaction.dialogue-c314b6b4e5d1afcdf7d9018083ab691f.tres"]
+
+[params]
+
+defaults=true

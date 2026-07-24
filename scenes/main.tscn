@@ -271,6 +271,7 @@ inspection_handler = NodePath("../Inspection Handler")
 visible = false
 
 [node name="safe" parent="." unique_id=139497989 instance=ExtResource("25_og1vs")]
+visible = false
 
 [connection signal="pressed" from="Lamp Inspection/Control/sticky_note" to="Inspection Handler" method="_on_sticky_note_pressed"]
 [connection signal="pressed" from="Lamp Inspection/Control/lamp_string" to="Inspection Handler" method="_on_lamp_string_pressed"]

@@ -1,0 +1,24 @@
+~ desk1
+Looks like a regular desk to me.
+=> END
+
+~ wardrobe
+The door's jammed. Does he not ever change clothes?
+=> END
+
+~ mirror
+AH! [wait=1] oh wait, it's just me.
+=> END
+
+~ desk2
+This bedside table seems useless. How is there not even a book on here?
+=> END
+
+~ beanbag
+This is a beanbag. I better not sit on it or he'll catch on the rewinding.
+=> END
+
+~ bed
+I better not ruffle this up or he'll start noticing.
+do DialogueHandler.reload_e_interaction()
+=> END

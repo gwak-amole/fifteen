@@ -26,3 +26,11 @@ This should be enough to incriminate Alex Miller.
 - Take it.
 	do DialogueHandler.take_shipment()
 => END
+
+~ watch 
+Who needs a watch worth thousands of dollars when you can use your phone?
+=> END
+
+~ gold_bars
+I would take these...if I wasn't a little ol' law-abiding citizen.
+=> END
