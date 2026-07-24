@@ -17,6 +17,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			var resource = load("res://dialogues/computer_interaction.dialogue")
 			DialogueManager.show_dialogue_balloon(resource, "start")
 		else:
-			$Area2D.monitoring = false
+			$Area2D.set_deferred("monitoring", false)
 			await get_tree().process_frame
-			$Area2D.monitoring = true;
+			$Area2D.set_deferred("monitoring", true)

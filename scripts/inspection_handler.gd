@@ -6,10 +6,12 @@ extends Node
 @export var anim: AnimationPlayer
 @export var lamp_texture: TextureRect
 @export var lamp_sprite: StaticBody2D
+@export var comp_login_screen: CanvasLayer
 var lamp_on = true;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	comp_login_screen.hide();
 	lamp_canvas.hide()
 	sticky.hide()
 	DialogueHandler.connect("checking_lamp", open_lamp)
@@ -51,4 +53,5 @@ func _on_lamp_string_pressed() -> void:
 		lamp_on = true
 
 func show_password_screen():
-	print("showing")
+	comp_login_screen.show();
+	comp_login_screen.initialize();

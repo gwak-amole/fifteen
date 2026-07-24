@@ -8,3 +8,7 @@ else:
 		do DialogueHandler.try_password()
 	- No
 => END
+
+~ login_screen
+It's his computer, alright.
+=> END
