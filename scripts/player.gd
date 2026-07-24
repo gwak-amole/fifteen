@@ -7,11 +7,14 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var just_side = false;
 var just_up = false;
+var pushing = false;
 
 func _ready() -> void:
+	pushing = false;
 	just_side = true;
 
 func _physics_process(delta: float) -> void:
+	pushing = false;
 	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	velocity = direction * SPEED
 	
@@ -49,6 +52,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	for i in get_slide_collision_count():
+		pushing = true;
 		var collision = get_slide_collision(i);
 		var body = collision.get_collider();
 		

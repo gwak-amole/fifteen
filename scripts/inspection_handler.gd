@@ -5,6 +5,7 @@ extends Node
 @export var sticky: TextureRect
 @export var anim: AnimationPlayer
 @export var lamp_texture: TextureRect
+@export var lamp_sprite: StaticBody2D
 var lamp_on = true;
 
 # Called when the node enters the scene tree for the first time.
@@ -12,6 +13,7 @@ func _ready() -> void:
 	lamp_canvas.hide()
 	sticky.hide()
 	DialogueHandler.connect("checking_lamp", open_lamp)
+	DialogueHandler.connect("trying_password", show_password_screen)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -27,6 +29,7 @@ func _on_sticky_note_pressed() -> void:
 	DialogueManager.show_dialogue_balloon(resource, "sticky_check")
 	sticky.show()
 	await DialogueManager.dialogue_ended
+	DialogueHandler.saw_lamp_password = true;
 	sticky.hide()
 	done_button.show()
 
@@ -41,6 +44,11 @@ func _on_lamp_string_pressed() -> void:
 	if lamp_on:
 		lamp_texture.texture = load("res://assets/lamp inspection/lamp_off.png")
 		lamp_on = false
+		lamp_sprite.get_node("Sprite2D").texture = load("res://assets/map/furniture/lamp_off.png")
 	elif !lamp_on:
 		lamp_texture.texture = load("res://assets/lamp inspection/lamp_on.png")
+		lamp_sprite.get_node("Sprite2D").texture = load("res://assets/map/furniture/lamp.png")
 		lamp_on = true
+
+func show_password_screen():
+	print("showing")

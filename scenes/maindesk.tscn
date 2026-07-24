@@ -1,8 +1,13 @@
 [gd_scene format=3 uid="uid://hsjvdvntxjeh"]
 
+[ext_resource type="Script" uid="uid://cp0awc1lo3nlo" path="res://scripts/maindesk.gd" id="1_y7i54"]
 [ext_resource type="Texture2D" uid="uid://cajba6m05ahr2" path="res://assets/map/furniture/desk.png" id="1_ypxi6"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ypxi6"]
+size = Vector2(73.5, 31.5)
+
 [node name="maindesk" type="StaticBody2D" unique_id=1193669920]
+script = ExtResource("1_y7i54")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=146103680]
 texture_filter = 1
@@ -11,3 +16,11 @@ texture = ExtResource("1_ypxi6")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1779442798]
 polygon = PackedVector2Array(-137, -69, -135, 52, -132, 62, -44, 62, -40, 54, -39, 9, 137, 9, 139, -67)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1917387202]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=677026965]
+position = Vector2(35, 6.25)
+shape = SubResource("RectangleShape2D_ypxi6")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

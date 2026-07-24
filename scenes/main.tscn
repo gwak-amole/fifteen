@@ -165,25 +165,27 @@ position = Vector2(578, 79)
 position = Vector2(736, 417)
 
 [node name="chair" parent="furniture" unique_id=1715445595 instance=ExtResource("12_eb6dy")]
-position = Vector2(335, 192)
+position = Vector2(338, 196)
 
 [node name="player" parent="." unique_id=2008801746 instance=ExtResource("2_0wfyh")]
 position = Vector2(145, 251)
 collision_layer = 3
 
-[node name="Inspection Handler" type="Node" parent="." unique_id=970271205 node_paths=PackedStringArray("lamp_canvas", "done_button", "sticky", "anim", "lamp_texture")]
+[node name="Inspection Handler" type="Node" parent="." unique_id=970271205 node_paths=PackedStringArray("lamp_canvas", "done_button", "sticky", "anim", "lamp_texture", "lamp_sprite")]
 script = ExtResource("13_a8y0u")
 lamp_canvas = NodePath("../Inspection Canvas")
 done_button = NodePath("../Inspection Canvas/Control/done")
 sticky = NodePath("../Inspection Canvas/Control/sticky_note_actual")
 anim = NodePath("AnimationPlayer")
 lamp_texture = NodePath("../Inspection Canvas/Control/TextureRect")
+lamp_sprite = NodePath("../furniture/lamp")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Inspection Handler" unique_id=830995085]
 libraries/ = SubResource("AnimationLibrary_og1vs")
 
 [node name="Inspection Canvas" type="CanvasLayer" parent="." unique_id=1216834879]
 process_mode = 3
+visible = false
 
 [node name="Control" type="Control" parent="Inspection Canvas" unique_id=751527157]
 texture_filter = 1

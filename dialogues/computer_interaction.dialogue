@@ -1,0 +1,10 @@
+~ start
+Oh, a computer.
+if !DialogueHandler.saw_lamp_password:
+	Hm... it's locked with some password.
+else:
+	Should I try putting in that password?
+	- Yes
+		do DialogueHandler.try_password()
+	- No
+=> END
