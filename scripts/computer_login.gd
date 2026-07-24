@@ -9,6 +9,7 @@ var tried = false;
 # Called when the node enters the scene tree for the first time.
 func initialize() -> void:
 	tried = false;
+	line_edit.text = ""
 	if DialogueHandler.first_time_on_computer:
 		var resource = load("res://dialogues/computer_interaction.dialogue")
 		DialogueManager.show_dialogue_balloon(resource, "login_screen")

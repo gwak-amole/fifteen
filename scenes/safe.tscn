@@ -3,6 +3,13 @@
 [ext_resource type="Script" uid="uid://bhpcajlgavlj6" path="res://scripts/safe.gd" id="1_ewslm"]
 [ext_resource type="Texture2D" uid="uid://bfcslpa285f3x" path="res://assets/safe_inspection/safe.png" id="1_no4i6"]
 [ext_resource type="FontFile" uid="uid://dui6j34xrkei6" path="res://fonts/DotGothic16 copy/DotGothic16-Regular.ttf" id="2_ewslm"]
+[ext_resource type="Texture2D" uid="uid://bin6nn0y1rbcn" path="res://assets/safe_inspection/safe_open.png" id="4_homnf"]
+[ext_resource type="Texture2D" uid="uid://dnf6wndfos6q8" path="res://assets/safe_inspection/gold.png" id="5_wy3jd"]
+[ext_resource type="Texture2D" uid="uid://wnucinj2n1n5" path="res://assets/safe_inspection/gold_select.png" id="6_rtxfg"]
+[ext_resource type="Texture2D" uid="uid://c83igdqn0h5mn" path="res://assets/safe_inspection/watch.png" id="7_g01j7"]
+[ext_resource type="Texture2D" uid="uid://ydl4n5tdlrrs" path="res://assets/safe_inspection/watch_select.png" id="8_41tkx"]
+[ext_resource type="Texture2D" uid="uid://rfxih6n2chh3" path="res://assets/safe_inspection/shipments.png" id="9_8r6pu"]
+[ext_resource type="Texture2D" uid="uid://dgg14c6c3mtac" path="res://assets/safe_inspection/shipments_select.png" id="10_shl4b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_homnf"]
 bg_color = Color(0.23392546, 0.23392549, 0.23392531, 1)
@@ -44,11 +51,16 @@ corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lxtee"]
 
-[node name="safe" type="CanvasLayer" unique_id=139497989 node_paths=PackedStringArray("input_code")]
+[node name="safe" type="CanvasLayer" unique_id=139497989 node_paths=PackedStringArray("input_code", "line_edit", "unlocked_safe", "locked_safe", "shipment_button")]
 script = ExtResource("1_ewslm")
-input_code = NodePath("Control/input_code")
+input_code = NodePath("locked/input_code")
+line_edit = NodePath("locked/input_code/LineEdit")
+unlocked_safe = NodePath("unlocked")
+locked_safe = NodePath("locked")
+shipment_button = NodePath("unlocked/shipment")
 
-[node name="Control" type="Control" parent="." unique_id=1923838041]
+[node name="locked" type="Control" parent="." unique_id=1923838041]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -56,7 +68,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="Control" unique_id=980532068]
+[node name="safe" type="TextureRect" parent="locked" unique_id=980532068]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -71,7 +83,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_no4i6")
 
-[node name="Button" type="Button" parent="Control" unique_id=2066642507]
+[node name="Button" type="Button" parent="locked" unique_id=2066642507]
 layout_mode = 0
 offset_left = 409.0
 offset_top = 236.0
@@ -83,7 +95,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_homnf")
 theme_override_styles/hover = SubResource("StyleBoxFlat_lxtee")
 text = "CODE"
 
-[node name="input_code" type="Panel" parent="Control" unique_id=233536892]
+[node name="input_code" type="Panel" parent="locked" unique_id=233536892]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -92,7 +104,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_ewslm")
 
-[node name="ColorRect" type="ColorRect" parent="Control/input_code" unique_id=1734784140]
+[node name="ColorRect" type="ColorRect" parent="locked/input_code" unique_id=1734784140]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -107,7 +119,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.14767182, 0.14767179, 0.14767179, 1)
 
-[node name="LineEdit" type="LineEdit" parent="Control/input_code" unique_id=1026545695]
+[node name="LineEdit" type="LineEdit" parent="locked/input_code" unique_id=1026545695]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -129,7 +141,7 @@ placeholder_text = "CODE"
 alignment = 1
 max_length = 4
 
-[node name="Label" type="Label" parent="Control/input_code" unique_id=1530587796]
+[node name="Label" type="Label" parent="locked/input_code" unique_id=1530587796]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -145,7 +157,7 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_ewslm")
 text = "max. 4 char"
 
-[node name="code_go" type="Button" parent="Control/input_code" unique_id=1886220829]
+[node name="code_go" type="Button" parent="locked/input_code" unique_id=1886220829]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -164,5 +176,56 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_homnf")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_lxtee")
 text = ">"
 
-[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Control/input_code/code_go" to="." method="_on_code_go_pressed"]
+[node name="unlocked" type="Control" parent="." unique_id=1964965289]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="safe" type="TextureRect" parent="unlocked" unique_id=1273526186]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -270.0
+offset_right = 480.0
+offset_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_homnf")
+
+[node name="goldbars" type="TextureButton" parent="unlocked" unique_id=1400007598]
+layout_mode = 0
+offset_left = 277.0
+offset_top = 252.0
+offset_right = 367.0
+offset_bottom = 347.0
+texture_normal = ExtResource("5_wy3jd")
+texture_hover = ExtResource("6_rtxfg")
+
+[node name="watch" type="TextureButton" parent="unlocked" unique_id=1029314774]
+layout_mode = 0
+offset_left = 324.0
+offset_top = 288.0
+offset_right = 414.0
+offset_bottom = 383.0
+texture_normal = ExtResource("7_g01j7")
+texture_hover = ExtResource("8_41tkx")
+
+[node name="shipment" type="TextureButton" parent="unlocked" unique_id=985942429]
+layout_mode = 0
+offset_left = 248.0
+offset_top = 295.0
+offset_right = 338.0
+offset_bottom = 390.0
+texture_normal = ExtResource("9_8r6pu")
+texture_hover = ExtResource("10_shl4b")
+
+[connection signal="pressed" from="locked/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="locked/input_code/code_go" to="." method="_on_code_go_pressed"]

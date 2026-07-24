@@ -5,6 +5,7 @@ extends CanvasLayer
 @export var vacation_window: Control
 @export var documents_window: Control
 @export var trash_window: Control
+@export var trash_code_window: Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,6 +14,11 @@ func _ready() -> void:
 	vacation_window.hide()
 	documents_window.hide();
 	trash_window.hide();
+	trash_code_window.hide();
+	DialogueHandler.connect("unlocking_trash", unlock_trash)
+
+func initialize():
+	DialogueHandler.seen_desktop = true;
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -96,5 +102,22 @@ func _on_trash_gui_input(event: InputEvent) -> void:
 
 
 func _on_trash_pressed() -> void:
+	if DialogueHandler.trash_unlock:
+		trash_window.show();
+		move_child(trash_window, -1);
+	else:
+		trash_code_window.show();
+		move_child(trash_code_window, -1)
+
+
+func _on_power_off_pressed() -> void:
+	hide()
+
+func unlock_trash():
 	trash_window.show();
-	move_child(trash_window, -1);
+	trash_code_window.hide()
+	move_child(trash_window, -1)
+
+
+func _on_trash_code_make_me_front(arg: String) -> void:
+	move_child(trash_code_window, -1)

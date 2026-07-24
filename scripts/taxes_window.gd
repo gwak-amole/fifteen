@@ -29,7 +29,8 @@ func _on_2006_pressed() -> void:
 
 func _on_2007_pressed() -> void:
 	viewer_2007.show()
-	DialogueHandler.knows_safe_code = true;
+	if viewer_2007.name == "rom_b":
+		DialogueHandler.knows_safe_code = true;
 
 
 func _on_xbutton_pressed() -> void:

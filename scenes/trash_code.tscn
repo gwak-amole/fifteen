@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://jxlojh1vmrj3"]
+
+[ext_resource type="Texture2D" uid="uid://ckmqj05niurwf" path="res://assets/computer/desktop/blank_window.png" id="1_rutnl"]
+[ext_resource type="Script" uid="uid://kusvnn12th1c" path="res://scripts/trash_code.gd" id="1_tquxf"]
+[ext_resource type="Texture2D" uid="uid://3f8lp086t0po" path="res://assets/computer/desktop/xbutton.png" id="2_qkmmg"]
+[ext_resource type="FontFile" uid="uid://dui6j34xrkei6" path="res://fonts/DotGothic16 copy/DotGothic16-Regular.ttf" id="3_tquxf"]
+[ext_resource type="Script" uid="uid://dj8pb2qbrlxay" path="res://scripts/title_bar.gd" id="5_deptm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkmmg"]
+bg_color = Color(0.9738049, 0.00059701386, 0.94162625, 0.7372549)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tquxf"]
+bg_color = Color(0.9999997, 0.18211758, 0.7574042, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_deptm"]
+bg_color = Color(1, 0.3459169, 0.2517029, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yd1vx"]
+
+[node name="trash_code" type="Control" unique_id=252350969 node_paths=PackedStringArray("line_edit")]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tquxf")
+line_edit = NodePath("LineEdit")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=341151344]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.0
+offset_top = -105.0
+offset_right = 190.0
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_rutnl")
+
+[node name="xbutton" type="TextureButton" parent="." unique_id=117339674]
+layout_mode = 0
+offset_left = 642.0
+offset_top = 167.0
+offset_right = 664.0
+offset_bottom = 189.0
+texture_normal = ExtResource("2_qkmmg")
+
+[node name="Label" type="Label" parent="." unique_id=749634656]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.44583333
+anchor_top = 0.3074074
+anchor_right = 0.5541667
+anchor_bottom = 0.35185185
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_tquxf")
+text = "ACCESS NEEDED"
+metadata/_edit_use_anchors_ = true
+
+[node name="LineEdit" type="LineEdit" parent="." unique_id=876539965]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.125
+offset_top = -31.0
+offset_right = 96.125
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_tquxf")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_qkmmg")
+theme_override_styles/focus = SubResource("StyleBoxFlat_tquxf")
+placeholder_text = "PASSCODE"
+alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=535386272]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = 33.5
+offset_right = 25.0
+offset_bottom = 57.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_tquxf")
+theme_override_styles/normal = SubResource("StyleBoxFlat_deptm")
+text = "enter"
+
+[node name="title_bar" type="Panel" parent="." unique_id=1315712662 node_paths=PackedStringArray("window")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -184.0
+offset_top = 168.0
+offset_right = 158.0
+offset_bottom = 189.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_yd1vx")
+script = ExtResource("5_deptm")
+window = NodePath("..")
+
+[connection signal="pressed" from="xbutton" to="." method="_on_xbutton_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="make_front" from="title_bar" to="." method="_on_title_bar_make_front"]

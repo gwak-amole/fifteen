@@ -5,10 +5,13 @@ if DialogueHandler.first_time_seeing_computer:
 if !DialogueHandler.saw_lamp_password:
 	Hm... it's locked with some password.
 else:
-	Should I try putting in that password?
-	- Yes
+	if !DialogueHandler.seen_desktop:
+		Should I try putting in that password?
+		- Yes
+			do DialogueHandler.try_password()
+		- No
+	else:
 		do DialogueHandler.try_password()
-	- No
 => END
 
 ~ login_screen

@@ -24,6 +24,7 @@
 [ext_resource type="StyleBox" uid="uid://cshlc3v64nf8e" path="res://scenes/ui/done_button_hover.tres" id="21_yc10j"]
 [ext_resource type="PackedScene" uid="uid://cq3cg66tqh6w6" path="res://scenes/computer_login.tscn" id="23_pm3ni"]
 [ext_resource type="PackedScene" uid="uid://c85wxvoo7uetv" path="res://scenes/desktop.tscn" id="24_y6deb"]
+[ext_resource type="PackedScene" uid="uid://cji88scy5ltt0" path="res://scenes/safe.tscn" id="25_og1vs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0wfyh"]
 texture = ExtResource("1_o5qli")
@@ -173,7 +174,7 @@ position = Vector2(338, 196)
 position = Vector2(145, 251)
 collision_layer = 3
 
-[node name="Inspection Handler" type="Node" parent="." unique_id=970271205 node_paths=PackedStringArray("lamp_canvas", "done_button", "sticky", "anim", "lamp_texture", "lamp_sprite", "comp_login_screen", "desktop")]
+[node name="Inspection Handler" type="Node" parent="." unique_id=970271205 node_paths=PackedStringArray("lamp_canvas", "done_button", "sticky", "anim", "lamp_texture", "lamp_sprite", "comp_login_screen", "desktop", "safe_screen")]
 script = ExtResource("13_a8y0u")
 lamp_canvas = NodePath("../Lamp Inspection")
 done_button = NodePath("../Lamp Inspection/Control/done")
@@ -183,6 +184,7 @@ lamp_texture = NodePath("../Lamp Inspection/Control/TextureRect")
 lamp_sprite = NodePath("../furniture/lamp")
 comp_login_screen = NodePath("../Computer Login")
 desktop = NodePath("../desktop")
+safe_screen = NodePath("../safe")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Inspection Handler" unique_id=830995085]
 libraries/ = SubResource("AnimationLibrary_og1vs")
@@ -267,6 +269,8 @@ inspection_handler = NodePath("../Inspection Handler")
 
 [node name="desktop" parent="." unique_id=1886967312 instance=ExtResource("24_y6deb")]
 visible = false
+
+[node name="safe" parent="." unique_id=139497989 instance=ExtResource("25_og1vs")]
 
 [connection signal="pressed" from="Lamp Inspection/Control/sticky_note" to="Inspection Handler" method="_on_sticky_note_pressed"]
 [connection signal="pressed" from="Lamp Inspection/Control/lamp_string" to="Inspection Handler" method="_on_lamp_string_pressed"]

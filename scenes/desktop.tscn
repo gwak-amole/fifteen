@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dwk2hau3nyha8" path="res://scenes/family_window.tscn" id="10_vcvwy"]
 [ext_resource type="PackedScene" uid="uid://sls065aobdo2" path="res://scenes/vacation_window.tscn" id="11_nikxi"]
 [ext_resource type="PackedScene" uid="uid://d4mdihdka6683" path="res://scenes/trash.tscn" id="11_q2hki"]
+[ext_resource type="PackedScene" uid="uid://jxlojh1vmrj3" path="res://scenes/trash_code.tscn" id="12_q2hki"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pkmwo"]
 bg_color = Color(1, 1, 1, 0.54901963)
@@ -19,13 +20,17 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[node name="desktop" type="CanvasLayer" unique_id=1886967312 node_paths=PackedStringArray("taxes_window", "fam_window", "vacation_window", "documents_window", "trash_window")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nikxi"]
+bg_color = Color(1, 0.28859672, 0.5478798, 1)
+
+[node name="desktop" type="CanvasLayer" unique_id=1886967312 node_paths=PackedStringArray("taxes_window", "fam_window", "vacation_window", "documents_window", "trash_window", "trash_code_window")]
 script = ExtResource("1_pkmwo")
 taxes_window = NodePath("taxes_window")
 fam_window = NodePath("family_window")
 vacation_window = NodePath("vacation_window")
 documents_window = NodePath("documents_window")
 trash_window = NodePath("trash")
+trash_code_window = NodePath("trash_code")
 
 [node name="Control" type="Control" parent="." unique_id=1970446500]
 texture_filter = 1
@@ -160,6 +165,21 @@ visible = false
 
 [node name="trash" parent="." unique_id=756763216 instance=ExtResource("11_q2hki")]
 
+[node name="trash_code" parent="." unique_id=252350969 instance=ExtResource("12_q2hki")]
+
+[node name="power_off" type="Button" parent="." unique_id=1042816907]
+anchors_preset = -1
+anchor_left = 0.07395833
+anchor_top = 0.83148146
+anchor_right = 0.16770834
+anchor_bottom = 0.8740741
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("5_6ajoh")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_nikxi")
+text = "power off"
+metadata/_edit_use_anchors_ = true
+
 [connection signal="pressed" from="Control/left_apps/documents" to="." method="_on_documents_pressed"]
 [connection signal="pressed" from="Control/left_apps/taxes" to="." method="_on_taxes_pressed"]
 [connection signal="pressed" from="Control/left_apps/family" to="." method="_on_family_pressed"]
@@ -175,3 +195,5 @@ visible = false
 [connection signal="make_me_front" from="documents_window" to="." method="_on_documents_window_make_me_front"]
 [connection signal="gui_input" from="trash" to="." method="_on_trash_gui_input"]
 [connection signal="make_me_front" from="trash" to="." method="_on_trash_make_me_front"]
+[connection signal="make_me_front" from="trash_code" to="." method="_on_trash_code_make_me_front"]
+[connection signal="pressed" from="power_off" to="." method="_on_power_off_pressed"]

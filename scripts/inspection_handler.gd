@@ -13,6 +13,7 @@ var lamp_on = true;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	safe_screen.hide()
 	desktop.hide();
 	comp_login_screen.hide();
 	lamp_canvas.hide()
@@ -67,6 +68,7 @@ func exit_computer_login():
 	
 func desktop_start():
 	desktop.show();
+	desktop.initialize();
 	comp_login_screen.hide();
 
 func show_safe_view():
