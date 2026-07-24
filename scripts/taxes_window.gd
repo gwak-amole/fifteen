@@ -42,5 +42,5 @@ func _on_title_bar_make_front() -> void:
 		make_me_front.emit("taxes")
 	elif name.contains("vacation"):
 		make_me_front.emit("vacation")
-	elif name.contains("doucments"):
+	elif name.contains("documents"):
 		make_me_front.emit("documents")

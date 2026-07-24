@@ -72,11 +72,12 @@ func _on_documents_pressed() -> void:
 
 
 func _on_documents_window_make_me_front(arg: String) -> void:
+	print(arg)
 	if arg == "documents":
-		move_child(vacation_window, -1)
+		move_child(documents_window, -1)
 
 
 func _on_documents_window_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
-			if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-				move_child(documents_window, -1);
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			move_child(documents_window, -1);

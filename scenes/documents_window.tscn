@@ -12,7 +12,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rpegq"]
 
-[node name="documents_window" type="Control" unique_id=504178834 node_paths=PackedStringArray("viewer_2007", "viewer_2006", "viewer_2005")]
+[node name="documents_window" type="Control" unique_id=504178834 node_paths=PackedStringArray("viewer_2007", "viewer_2006")]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 8
@@ -25,7 +25,6 @@ grow_vertical = 2
 script = ExtResource("1_5uljl")
 viewer_2007 = NodePath("nothing viewer")
 viewer_2006 = NodePath("msg viewer")
-viewer_2005 = NodePath("")
 
 [node name="window_back" type="TextureRect" parent="." unique_id=1503141535]
 layout_mode = 1
