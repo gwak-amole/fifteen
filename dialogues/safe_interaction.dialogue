@@ -1,0 +1,17 @@
+~ start
+if DialogueHandler.first_time_seeing_safe:
+	!! [wait=1] there's a safe hidden in here.
+do DialogueHandler.showing_safe_view.emit()
+=> looking_at_safe
+Do you want to put in the code?
+- Yes
+- No
+	do DialogueHandler.exit_safe_view()
+=> END
+
+~ looking_at_safe
+if !DialogueHandler.knows_safe_code:
+	I need to find the safe code first.
+	do DialogueHandler.exit_safe_view()
+	=> END!
+=> END

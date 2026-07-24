@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bg10gsrg1o8re"
+path="res://.godot/imported/safe_interaction.dialogue-ceaa5a7bdb41ceb4d392728400ff86e3.tres"
+
+[deps]
+
+source_file="res://dialogues/safe_interaction.dialogue"
+dest_files=["res://.godot/imported/safe_interaction.dialogue-ceaa5a7bdb41ceb4d392728400ff86e3.tres"]
+
+[params]
+
+defaults=true

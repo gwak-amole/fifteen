@@ -29,6 +29,7 @@ func _on_2006_pressed() -> void:
 
 func _on_2007_pressed() -> void:
 	viewer_2007.show()
+	DialogueHandler.knows_safe_code = true;
 
 
 func _on_xbutton_pressed() -> void:
@@ -44,3 +45,5 @@ func _on_title_bar_make_front() -> void:
 		make_me_front.emit("vacation")
 	elif name.contains("documents"):
 		make_me_front.emit("documents")
+	elif name.contains("trash"):
+		make_me_front.emit("trash")

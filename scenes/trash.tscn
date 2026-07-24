@@ -1,18 +1,20 @@
-[gd_scene format=3 uid="uid://cef0480xm5qxd"]
+[gd_scene format=3 uid="uid://d4mdihdka6683"]
 
-[ext_resource type="Texture2D" uid="uid://ckmqj05niurwf" path="res://assets/computer/desktop/blank_window.png" id="1_qbxjf"]
-[ext_resource type="Script" uid="uid://dn0j0ei0dge3g" path="res://scripts/taxes_window.gd" id="1_rp86d"]
-[ext_resource type="Texture2D" uid="uid://3f8lp086t0po" path="res://assets/computer/desktop/xbutton.png" id="2_jbhxw"]
-[ext_resource type="Texture2D" uid="uid://sqfn7fbu1ra3" path="res://assets/computer/desktop/txtfile.png" id="3_rp86d"]
-[ext_resource type="FontFile" uid="uid://dui6j34xrkei6" path="res://fonts/DotGothic16 copy/DotGothic16-Regular.ttf" id="4_mlh1y"]
-[ext_resource type="Texture2D" uid="uid://v5vdtqhwjafk" path="res://assets/computer/desktop/txtviewer.png" id="6_mlh1y"]
-[ext_resource type="Script" uid="uid://dco1axyeslv2y" path="res://scripts/txt_viewer.gd" id="7_on7te"]
-[ext_resource type="Script" uid="uid://dj8pb2qbrlxay" path="res://scripts/title_bar.gd" id="8_2ur07"]
-[ext_resource type="Script" uid="uid://2rtx54ffd04d" path="res://scripts/title_bar_viewer.gd" id="8_rpegq"]
+[ext_resource type="Script" uid="uid://dn0j0ei0dge3g" path="res://scripts/taxes_window.gd" id="1_q42go"]
+[ext_resource type="Texture2D" uid="uid://ckmqj05niurwf" path="res://assets/computer/desktop/blank_window.png" id="2_0or2d"]
+[ext_resource type="Texture2D" uid="uid://3f8lp086t0po" path="res://assets/computer/desktop/xbutton.png" id="3_ag2lv"]
+[ext_resource type="Texture2D" uid="uid://sqfn7fbu1ra3" path="res://assets/computer/desktop/txtfile.png" id="4_0i67c"]
+[ext_resource type="FontFile" uid="uid://dui6j34xrkei6" path="res://fonts/DotGothic16 copy/DotGothic16-Regular.ttf" id="5_q7r4u"]
+[ext_resource type="Texture2D" uid="uid://6agpq12yol7e" path="res://assets/computer/desktop/image_file.png" id="6_py227"]
+[ext_resource type="Texture2D" uid="uid://v5vdtqhwjafk" path="res://assets/computer/desktop/txtviewer.png" id="7_dbuca"]
+[ext_resource type="Script" uid="uid://dco1axyeslv2y" path="res://scripts/txt_viewer.gd" id="8_tlq2d"]
+[ext_resource type="Script" uid="uid://2rtx54ffd04d" path="res://scripts/title_bar_viewer.gd" id="9_1drm7"]
+[ext_resource type="Texture2D" uid="uid://eb3ow4cxi5tc" path="res://assets/computer/desktop/family folder/wifey2_image.png" id="10_g8f5b"]
+[ext_resource type="Script" uid="uid://dj8pb2qbrlxay" path="res://scripts/title_bar.gd" id="11_j5g8m"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rpegq"]
 
-[node name="taxes_window" type="Control" unique_id=504178834 node_paths=PackedStringArray("viewer_2007", "viewer_2006", "viewer_2005")]
+[node name="trash" type="Control" unique_id=504178834 node_paths=PackedStringArray("viewer_2007", "viewer_2006", "viewer_2005")]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 8
@@ -22,7 +24,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_rp86d")
+script = ExtResource("1_q42go")
 viewer_2007 = NodePath("2007_viewer")
 viewer_2006 = NodePath("2006_viewer")
 viewer_2005 = NodePath("2005_viewer")
@@ -40,7 +42,18 @@ offset_right = 190.0
 offset_bottom = 105.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_qbxjf")
+texture = ExtResource("2_0or2d")
+
+[node name="Label" type="Label" parent="." unique_id=182318657]
+layout_mode = 0
+offset_left = -172.0
+offset_top = -78.0
+offset_right = -132.0
+offset_bottom = -54.0
+theme_override_colors/font_color = Color(0.37384576, 0.16449603, 0, 1)
+theme_override_fonts/font = ExtResource("5_q7r4u")
+theme_override_font_sizes/font_size = 14
+text = "trash"
 
 [node name="xbutton" type="TextureButton" parent="." unique_id=1635917178]
 layout_mode = 1
@@ -55,20 +68,44 @@ offset_right = 184.0
 offset_bottom = -81.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("2_jbhxw")
+texture_normal = ExtResource("3_ag2lv")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=983017839]
+[node name="2007" type="TextureButton" parent="." unique_id=1458465560]
 layout_mode = 0
-offset_left = -166.0
+offset_left = 122.0
+offset_top = 12.0
+offset_right = 176.0
+offset_bottom = 71.0
+texture_normal = ExtResource("4_0i67c")
+
+[node name="Label" type="Label" parent="2007" unique_id=2064238696]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -12.0
+offset_top = -1.0
+offset_right = 12.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_q7r4u")
+theme_override_font_sizes/font_size = 12
+text = "rom..b"
+horizontal_alignment = 1
+
+[node name="2006" type="TextureButton" parent="." unique_id=336260698]
+layout_mode = 0
+offset_left = -171.0
 offset_top = -45.0
-offset_right = 10.0
+offset_right = -117.0
 offset_bottom = 14.0
+texture_normal = ExtResource("4_0i67c")
 
-[node name="2007" type="TextureButton" parent="HBoxContainer" unique_id=1458465560]
-layout_mode = 2
-texture_normal = ExtResource("3_rp86d")
-
-[node name="Label" type="Label" parent="HBoxContainer/2007" unique_id=2064238696]
+[node name="Label" type="Label" parent="2006" unique_id=1845890109]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -82,16 +119,20 @@ offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_mlh1y")
+theme_override_fonts/font = ExtResource("5_q7r4u")
 theme_override_font_sizes/font_size = 12
-text = "2007"
+text = "2004"
 horizontal_alignment = 1
 
-[node name="2006" type="TextureButton" parent="HBoxContainer" unique_id=336260698]
-layout_mode = 2
-texture_normal = ExtResource("3_rp86d")
+[node name="2005" type="TextureButton" parent="." unique_id=576331324]
+layout_mode = 0
+offset_left = -113.0
+offset_top = -45.0
+offset_right = -59.0
+offset_bottom = 14.0
+texture_normal = ExtResource("6_py227")
 
-[node name="Label" type="Label" parent="HBoxContainer/2006" unique_id=1845890109]
+[node name="Label" type="Label" parent="2005" unique_id=293010912]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -105,32 +146,9 @@ offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_mlh1y")
+theme_override_fonts/font = ExtResource("5_q7r4u")
 theme_override_font_sizes/font_size = 12
-text = "2006"
-horizontal_alignment = 1
-
-[node name="2005" type="TextureButton" parent="HBoxContainer" unique_id=576331324]
-layout_mode = 2
-texture_normal = ExtResource("3_rp86d")
-
-[node name="Label" type="Label" parent="HBoxContainer/2005" unique_id=293010912]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -12.0
-offset_top = -1.0
-offset_right = 12.0
-offset_bottom = 17.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_mlh1y")
-theme_override_font_sizes/font_size = 12
-text = "2005"
+text = "wifey3"
 horizontal_alignment = 1
 
 [node name="2007_viewer" type="TextureRect" parent="." unique_id=138351585]
@@ -147,20 +165,23 @@ offset_right = 130.0
 offset_bottom = 165.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("6_mlh1y")
-script = ExtResource("7_on7te")
+texture = ExtResource("7_dbuca")
+script = ExtResource("8_tlq2d")
 
 [node name="Label" type="Label" parent="2007_viewer" unique_id=1993111957]
 layout_mode = 1
 offset_left = 10.0
 offset_top = 32.0
-offset_right = 34.0
-offset_bottom = 50.0
+offset_right = 252.0
+offset_bottom = 71.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_mlh1y")
+theme_override_fonts/font = ExtResource("5_q7r4u")
 theme_override_font_sizes/font_size = 12
-text = "in 2007 I totally did my taxes."
-horizontal_alignment = 1
+text = "roman - 8:15 AM: hey wait so was the safe key 9872?
+AM - 8:16 AM: Do you have no common sense? why the hell would you put that here? These chats are all backed up
+roman - 8:16 AM: ok geez just move this backup to trash
+AM - 8:16 AM: in fact I will."
+autowrap_mode = 3
 
 [node name="xbutton7" type="TextureButton" parent="2007_viewer" unique_id=47547706]
 layout_mode = 0
@@ -168,7 +189,7 @@ offset_left = 231.0
 offset_top = 3.0
 offset_right = 253.0
 offset_bottom = 25.0
-texture_normal = ExtResource("2_jbhxw")
+texture_normal = ExtResource("3_ag2lv")
 
 [node name="title_bar" type="Panel" parent="2007_viewer" unique_id=1114142528 node_paths=PackedStringArray("window")]
 layout_mode = 1
@@ -181,7 +202,7 @@ offset_right = 96.0
 offset_bottom = 26.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_rpegq")
-script = ExtResource("8_rpegq")
+script = ExtResource("9_1drm7")
 window = NodePath("..")
 
 [node name="2006_viewer" type="TextureRect" parent="." unique_id=987349546]
@@ -198,19 +219,20 @@ offset_right = 130.0
 offset_bottom = 165.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("6_mlh1y")
-script = ExtResource("7_on7te")
+texture = ExtResource("7_dbuca")
+script = ExtResource("8_tlq2d")
 
 [node name="Label" type="Label" parent="2006_viewer" unique_id=691922186]
 layout_mode = 1
-offset_left = 10.0
-offset_top = 32.0
-offset_right = 253.0
-offset_bottom = 71.0
+offset_left = 8.0
+offset_top = 38.0
+offset_right = 251.0
+offset_bottom = 308.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_mlh1y")
+theme_override_fonts/font = ExtResource("5_q7r4u")
 theme_override_font_sizes/font_size = 12
-text = "I like otters more than dogs sorry not sorry :)"
+text = "taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes taxes"
+horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="xbutton6" type="TextureButton" parent="2006_viewer" unique_id=832954908]
@@ -219,7 +241,7 @@ offset_left = 231.0
 offset_top = 3.0
 offset_right = 253.0
 offset_bottom = 25.0
-texture_normal = ExtResource("2_jbhxw")
+texture_normal = ExtResource("3_ag2lv")
 
 [node name="title_bar" type="Panel" parent="2006_viewer" unique_id=1912933926 node_paths=PackedStringArray("window")]
 layout_mode = 1
@@ -232,7 +254,7 @@ offset_right = 96.0
 offset_bottom = 26.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_rpegq")
-script = ExtResource("8_rpegq")
+script = ExtResource("9_1drm7")
 window = NodePath("..")
 
 [node name="2005_viewer" type="TextureRect" parent="." unique_id=1006641647]
@@ -249,20 +271,8 @@ offset_right = 130.0
 offset_bottom = 165.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("6_mlh1y")
-script = ExtResource("7_on7te")
-
-[node name="Label" type="Label" parent="2005_viewer" unique_id=1322187244]
-layout_mode = 1
-offset_left = 9.0
-offset_top = 278.0
-offset_right = 247.0
-offset_bottom = 317.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_mlh1y")
-theme_override_font_sizes/font_size = 12
-text = "note to self: remember to empty desktop trash"
-autowrap_mode = 3
+texture = ExtResource("7_dbuca")
+script = ExtResource("8_tlq2d")
 
 [node name="xbutton5" type="TextureButton" parent="2005_viewer" unique_id=1788430964]
 layout_mode = 0
@@ -270,7 +280,7 @@ offset_left = 231.0
 offset_top = 3.0
 offset_right = 253.0
 offset_bottom = 25.0
-texture_normal = ExtResource("2_jbhxw")
+texture_normal = ExtResource("3_ag2lv")
 
 [node name="title_bar" type="Panel" parent="2005_viewer" unique_id=41072310 node_paths=PackedStringArray("window")]
 layout_mode = 1
@@ -283,8 +293,16 @@ offset_right = 96.0
 offset_bottom = 26.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_rpegq")
-script = ExtResource("8_rpegq")
+script = ExtResource("9_1drm7")
 window = NodePath("..")
+
+[node name="TextureRect" type="TextureRect" parent="2005_viewer" unique_id=555002809]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 28.0
+offset_right = 255.0
+offset_bottom = 319.0
+texture = ExtResource("10_g8f5b")
 
 [node name="title_bar" type="Panel" parent="." unique_id=873600373 node_paths=PackedStringArray("window")]
 layout_mode = 1
@@ -297,13 +315,13 @@ offset_right = 160.0
 offset_bottom = -81.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_rpegq")
-script = ExtResource("8_2ur07")
+script = ExtResource("11_j5g8m")
 window = NodePath("..")
 
 [connection signal="pressed" from="xbutton" to="." method="_on_xbutton_pressed"]
-[connection signal="pressed" from="HBoxContainer/2007" to="." method="_on_2007_pressed"]
-[connection signal="pressed" from="HBoxContainer/2006" to="." method="_on_2006_pressed"]
-[connection signal="pressed" from="HBoxContainer/2005" to="." method="_on_2005_pressed"]
+[connection signal="pressed" from="2007" to="." method="_on_2007_pressed"]
+[connection signal="pressed" from="2006" to="." method="_on_2006_pressed"]
+[connection signal="pressed" from="2005" to="." method="_on_2005_pressed"]
 [connection signal="pressed" from="2007_viewer/xbutton7" to="2007_viewer" method="_on_xbutton_7_pressed"]
 [connection signal="pressed" from="2006_viewer/xbutton6" to="2006_viewer" method="_on_xbutton_6_pressed"]
 [connection signal="pressed" from="2005_viewer/xbutton5" to="2005_viewer" method="_on_xbutton_5_pressed"]

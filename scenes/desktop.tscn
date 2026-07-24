@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://r46dytoontoj" path="res://scenes/documents_window.tscn" id="10_nikxi"]
 [ext_resource type="PackedScene" uid="uid://dwk2hau3nyha8" path="res://scenes/family_window.tscn" id="10_vcvwy"]
 [ext_resource type="PackedScene" uid="uid://sls065aobdo2" path="res://scenes/vacation_window.tscn" id="11_nikxi"]
+[ext_resource type="PackedScene" uid="uid://d4mdihdka6683" path="res://scenes/trash.tscn" id="11_q2hki"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pkmwo"]
 bg_color = Color(1, 1, 1, 0.54901963)
@@ -18,12 +19,13 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[node name="desktop" type="CanvasLayer" unique_id=1886967312 node_paths=PackedStringArray("taxes_window", "fam_window", "vacation_window", "documents_window")]
+[node name="desktop" type="CanvasLayer" unique_id=1886967312 node_paths=PackedStringArray("taxes_window", "fam_window", "vacation_window", "documents_window", "trash_window")]
 script = ExtResource("1_pkmwo")
 taxes_window = NodePath("taxes_window")
 fam_window = NodePath("family_window")
 vacation_window = NodePath("vacation_window")
 documents_window = NodePath("documents_window")
+trash_window = NodePath("trash")
 
 [node name="Control" type="Control" parent="." unique_id=1970446500]
 texture_filter = 1
@@ -156,10 +158,13 @@ visible = false
 
 [node name="documents_window" parent="." unique_id=1538191277 instance=ExtResource("10_nikxi")]
 
+[node name="trash" parent="." unique_id=756763216 instance=ExtResource("11_q2hki")]
+
 [connection signal="pressed" from="Control/left_apps/documents" to="." method="_on_documents_pressed"]
 [connection signal="pressed" from="Control/left_apps/taxes" to="." method="_on_taxes_pressed"]
 [connection signal="pressed" from="Control/left_apps/family" to="." method="_on_family_pressed"]
 [connection signal="pressed" from="Control/left_apps/vacation" to="." method="_on_vacation_pressed"]
+[connection signal="pressed" from="Control/trash" to="." method="_on_trash_pressed"]
 [connection signal="gui_input" from="taxes_window" to="." method="_on_taxes_window_gui_input"]
 [connection signal="make_me_front" from="taxes_window" to="." method="_on_taxes_window_make_me_front"]
 [connection signal="gui_input" from="family_window" to="." method="_on_family_window_gui_input"]
@@ -168,3 +173,5 @@ visible = false
 [connection signal="make_me_front" from="vacation_window" to="." method="_on_vacation_window_make_me_front"]
 [connection signal="gui_input" from="documents_window" to="." method="_on_documents_window_gui_input"]
 [connection signal="make_me_front" from="documents_window" to="." method="_on_documents_window_make_me_front"]
+[connection signal="gui_input" from="trash" to="." method="_on_trash_gui_input"]
+[connection signal="make_me_front" from="trash" to="." method="_on_trash_make_me_front"]
