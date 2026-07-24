@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://dui6j34xrkei6" path="res://fonts/DotGothic16 copy/DotGothic16-Regular.ttf" id="5_6ajoh"]
 [ext_resource type="Texture2D" uid="uid://w215fomsd6xh" path="res://assets/computer/desktop/directory.png" id="6_veafp"]
 [ext_resource type="Texture2D" uid="uid://dedty888htyrt" path="res://assets/computer/desktop/trashbin.png" id="7_veafp"]
+[ext_resource type="PackedScene" uid="uid://cef0480xm5qxd" path="res://scenes/taxes_window.tscn" id="9_gl26t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pkmwo"]
 bg_color = Color(1, 1, 1, 0.54901963)
@@ -154,5 +155,7 @@ theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxFlat_pkmwo")
 text = "trash"
 horizontal_alignment = 1
+
+[node name="taxes_window" parent="." unique_id=504178834 instance=ExtResource("9_gl26t")]
 
 [connection signal="pressed" from="Control/left_apps/taxes" to="." method="_on_taxes_pressed"]

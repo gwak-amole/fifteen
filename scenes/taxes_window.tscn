@@ -7,6 +7,9 @@
 [ext_resource type="FontFile" uid="uid://dui6j34xrkei6" path="res://fonts/DotGothic16 copy/DotGothic16-Regular.ttf" id="4_mlh1y"]
 [ext_resource type="Texture2D" uid="uid://v5vdtqhwjafk" path="res://assets/computer/desktop/txtviewer.png" id="6_mlh1y"]
 [ext_resource type="Script" uid="uid://dco1axyeslv2y" path="res://scripts/txt_viewer.gd" id="7_on7te"]
+[ext_resource type="Script" uid="uid://dj8pb2qbrlxay" path="res://scripts/title_bar.gd" id="8_2ur07"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rpegq"]
 
 [node name="taxes_window" type="Control" unique_id=504178834 node_paths=PackedStringArray("viewer_2007", "viewer_2006", "viewer_2005")]
 texture_filter = 1
@@ -130,6 +133,7 @@ text = "2005"
 horizontal_alignment = 1
 
 [node name="2007_viewer" type="TextureRect" parent="." unique_id=138351585]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -164,6 +168,7 @@ offset_bottom = 40.0
 texture_normal = ExtResource("2_jbhxw")
 
 [node name="2006_viewer" type="TextureRect" parent="." unique_id=987349546]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -198,6 +203,7 @@ offset_bottom = 40.0
 texture_normal = ExtResource("2_jbhxw")
 
 [node name="2005_viewer" type="TextureRect" parent="." unique_id=1006641647]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -230,6 +236,20 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture_normal = ExtResource("2_jbhxw")
+
+[node name="title_bar" type="Panel" parent="." unique_id=873600373 node_paths=PackedStringArray("window")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -184.0
+offset_top = -105.0
+offset_right = 184.0
+offset_bottom = -79.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_rpegq")
+script = ExtResource("8_2ur07")
+window = NodePath("..")
 
 [connection signal="pressed" from="xbutton" to="." method="_on_xbutton_pressed"]
 [connection signal="pressed" from="HBoxContainer/2007" to="." method="_on_2007_pressed"]
