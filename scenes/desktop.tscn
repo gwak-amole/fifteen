@@ -1,0 +1,154 @@
+[gd_scene format=3 uid="uid://c85wxvoo7uetv"]
+
+[ext_resource type="Texture2D" uid="uid://c656a0bbclvcl" path="res://assets/computer/desktop/desktop.png" id="1_xxa2h"]
+[ext_resource type="Texture2D" uid="uid://dqblvo4ptnv0h" path="res://assets/computer/desktop/start_button_desktop.png" id="2_81rff"]
+[ext_resource type="Texture2D" uid="uid://ctm0fxrjhym7u" path="res://assets/computer/desktop/time.png" id="3_ox5hf"]
+[ext_resource type="Texture2D" uid="uid://4t0a6sfu2er3" path="res://assets/computer/desktop/documents.png" id="4_ox5hf"]
+[ext_resource type="FontFile" uid="uid://dui6j34xrkei6" path="res://fonts/DotGothic16 copy/DotGothic16-Regular.ttf" id="5_6ajoh"]
+[ext_resource type="Texture2D" uid="uid://w215fomsd6xh" path="res://assets/computer/desktop/directory.png" id="6_veafp"]
+[ext_resource type="Texture2D" uid="uid://dedty888htyrt" path="res://assets/computer/desktop/trashbin.png" id="7_veafp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pkmwo"]
+bg_color = Color(1, 1, 1, 0.54901963)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="desktop" type="CanvasLayer" unique_id=1886967312]
+
+[node name="Control" type="Control" parent="." unique_id=1970446500]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="desktop" type="TextureRect" parent="Control" unique_id=580632174]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_xxa2h")
+
+[node name="start" type="TextureButton" parent="Control" unique_id=1429205643]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 448.0
+offset_right = 142.0
+offset_bottom = 473.0
+texture_normal = ExtResource("2_81rff")
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1514386621]
+layout_mode = 0
+offset_left = 816.0
+offset_top = 448.0
+offset_right = 888.0
+offset_bottom = 473.0
+texture = ExtResource("3_ox5hf")
+
+[node name="left_apps" type="VBoxContainer" parent="Control" unique_id=1993881003]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 91.0
+offset_right = 144.0
+offset_bottom = 397.0
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="documents" type="TextureButton" parent="Control/left_apps" unique_id=1420150968]
+layout_mode = 2
+texture_normal = ExtResource("4_ox5hf")
+texture_pressed = ExtResource("4_ox5hf")
+texture_hover = ExtResource("4_ox5hf")
+texture_disabled = ExtResource("4_ox5hf")
+texture_focused = ExtResource("4_ox5hf")
+
+[node name="Label" type="Label" parent="Control/left_apps/documents" unique_id=2116778065]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 50.0
+offset_right = 56.0
+offset_bottom = 68.0
+theme_override_colors/font_color = Color(0.2903535, 0.2903535, 0.29035345, 1)
+theme_override_fonts/font = ExtResource("5_6ajoh")
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_pkmwo")
+text = "documents"
+horizontal_alignment = 1
+
+[node name="taxes" type="TextureButton" parent="Control/left_apps" unique_id=1545889758]
+layout_mode = 2
+texture_normal = ExtResource("6_veafp")
+
+[node name="Label" type="Label" parent="Control/left_apps/taxes" unique_id=7955136]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 50.0
+offset_right = 56.0
+offset_bottom = 68.0
+theme_override_colors/font_color = Color(0.2903535, 0.2903535, 0.29035345, 1)
+theme_override_fonts/font = ExtResource("5_6ajoh")
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_pkmwo")
+text = "taxes"
+horizontal_alignment = 1
+
+[node name="family" type="TextureButton" parent="Control/left_apps" unique_id=1871412755]
+layout_mode = 2
+texture_normal = ExtResource("6_veafp")
+
+[node name="Label" type="Label" parent="Control/left_apps/family" unique_id=1890808837]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 50.0
+offset_right = 56.0
+offset_bottom = 68.0
+theme_override_colors/font_color = Color(0.2903535, 0.2903535, 0.29035345, 1)
+theme_override_fonts/font = ExtResource("5_6ajoh")
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_pkmwo")
+text = "family"
+horizontal_alignment = 1
+
+[node name="vacation" type="TextureButton" parent="Control/left_apps" unique_id=2079063902]
+layout_mode = 2
+texture_normal = ExtResource("6_veafp")
+
+[node name="Label" type="Label" parent="Control/left_apps/vacation" unique_id=1055970221]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 50.0
+offset_right = 56.0
+offset_bottom = 68.0
+theme_override_colors/font_color = Color(0.2903535, 0.2903535, 0.29035345, 1)
+theme_override_fonts/font = ExtResource("5_6ajoh")
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_pkmwo")
+text = "vacation"
+horizontal_alignment = 1
+
+[node name="trash" type="TextureButton" parent="Control" unique_id=806975363]
+layout_mode = 0
+offset_left = 819.0
+offset_top = 367.0
+offset_right = 873.0
+offset_bottom = 421.0
+texture_normal = ExtResource("7_veafp")
+
+[node name="Label" type="Label" parent="Control/trash" unique_id=559069944]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 50.0
+offset_right = 56.0
+offset_bottom = 68.0
+theme_override_colors/font_color = Color(0.2903535, 0.2903535, 0.29035345, 1)
+theme_override_fonts/font = ExtResource("5_6ajoh")
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_pkmwo")
+text = "trash"
+horizontal_alignment = 1
