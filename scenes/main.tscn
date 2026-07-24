@@ -12,6 +12,15 @@
 [ext_resource type="PackedScene" uid="uid://josy77o4eli0" path="res://scenes/shelf.tscn" id="9_choun"]
 [ext_resource type="PackedScene" uid="uid://b3e1cpkmui3w7" path="res://scenes/lamp.tscn" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://dgmhoaf83tgbb" path="res://scenes/chair.tscn" id="12_eb6dy"]
+[ext_resource type="Script" uid="uid://dvrujjkiosbuk" path="res://scripts/inspection_handler.gd" id="13_a8y0u"]
+[ext_resource type="Texture2D" uid="uid://dum5vg56usfsi" path="res://assets/lamp inspection/lamp_on.png" id="14_a8y0u"]
+[ext_resource type="Texture2D" uid="uid://b7d1lif22bxit" path="res://assets/lamp inspection/sticky_def.png" id="15_jbj1t"]
+[ext_resource type="Texture2D" uid="uid://da6eouajnvmw0" path="res://assets/lamp inspection/sticky_highlight.png" id="16_muem4"]
+[ext_resource type="Texture2D" uid="uid://cte88hof52jan" path="res://assets/lamp inspection/lamp_pullingthing_unpulled.png" id="17_dp3eg"]
+[ext_resource type="Texture2D" uid="uid://c05b27wdcbxp7" path="res://assets/lamp inspection/lamp_pullingthing_pulled.png" id="18_0ld40"]
+[ext_resource type="Texture2D" uid="uid://conlfno2xd1og" path="res://assets/lamp inspection/sticky_note.png" id="19_0ld40"]
+[ext_resource type="FontFile" uid="uid://dui6j34xrkei6" path="res://fonts/DotGothic16 copy/DotGothic16-Regular.ttf" id="20_gqmmt"]
+[ext_resource type="StyleBox" uid="uid://cshlc3v64nf8e" path="res://scenes/ui/done_button_hover.tres" id="21_yc10j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0wfyh"]
 texture = ExtResource("1_o5qli")
@@ -54,6 +63,18 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 3
 physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_0wfyh")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gqmmt"]
+bg_color = Color(0.6795125, 0.33008245, 1.92523e-07, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.9617471, 0.38866496, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [node name="main" type="Node2D" unique_id=1074030652]
 
@@ -99,3 +120,86 @@ position = Vector2(335, 192)
 [node name="player" parent="." unique_id=2008801746 instance=ExtResource("2_0wfyh")]
 position = Vector2(145, 251)
 collision_layer = 3
+
+[node name="Inspection Handler" type="Node" parent="." unique_id=970271205 node_paths=PackedStringArray("lamp_canvas", "done_button", "sticky")]
+script = ExtResource("13_a8y0u")
+lamp_canvas = NodePath("../Inspection Canvas")
+done_button = NodePath("../Inspection Canvas/Control/done")
+sticky = NodePath("../Inspection Canvas/Control/sticky_note_actual")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Inspection Handler" unique_id=830995085]
+
+[node name="Inspection Canvas" type="CanvasLayer" parent="." unique_id=1216834879]
+process_mode = 3
+
+[node name="Control" type="Control" parent="Inspection Canvas" unique_id=751527157]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Inspection Canvas/Control" unique_id=809172911]
+texture_filter = 1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("14_a8y0u")
+
+[node name="sticky_note" type="TextureButton" parent="Inspection Canvas/Control" unique_id=1420307633]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 276.0
+offset_right = 260.0
+offset_bottom = 386.0
+texture_normal = ExtResource("15_jbj1t")
+texture_hover = ExtResource("16_muem4")
+
+[node name="lamp_string" type="TextureButton" parent="Inspection Canvas/Control" unique_id=145586545]
+layout_mode = 0
+offset_left = 363.0
+offset_top = 256.0
+offset_right = 403.0
+offset_bottom = 406.0
+texture_normal = ExtResource("17_dp3eg")
+texture_hover = ExtResource("18_0ld40")
+
+[node name="sticky_note_actual" type="TextureRect" parent="Inspection Canvas/Control" unique_id=1578256108]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.0
+offset_top = -200.0
+offset_right = 210.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("19_0ld40")
+
+[node name="done" type="Button" parent="Inspection Canvas/Control" unique_id=1992751173]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -72.0
+offset_top = -110.0
+offset_right = 72.0
+offset_bottom = -54.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("20_gqmmt")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_gqmmt")
+theme_override_styles/hover = ExtResource("21_yc10j")
+theme_override_styles/focus = ExtResource("21_yc10j")
+text = "done"
+
+[connection signal="pressed" from="Inspection Canvas/Control/sticky_note" to="Inspection Handler" method="_on_sticky_note_pressed"]
+[connection signal="pressed" from="Inspection Canvas/Control/done" to="Inspection Handler" method="_on_done_pressed"]

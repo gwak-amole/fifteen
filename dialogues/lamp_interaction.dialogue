@@ -5,3 +5,12 @@ Would you like to check the lamp?
 	do DialogueHandler.check_lamp()
 - No
 => END
+
+~ sticky_check
+...what's this? [wait=2]
+- I'm done looking
+=> sticky_see
+
+~ sticky_see
+[speed=0.2] ... [speed=1] interesting.
+=> END!
