@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://dvrujjkiosbuk" path="res://scripts/inspection_handler.gd" id="13_a8y0u"]
 [ext_resource type="Texture2D" uid="uid://dum5vg56usfsi" path="res://assets/lamp inspection/lamp_on.png" id="14_a8y0u"]
 [ext_resource type="Texture2D" uid="uid://b7d1lif22bxit" path="res://assets/lamp inspection/sticky_def.png" id="15_jbj1t"]
+[ext_resource type="Texture2D" uid="uid://ci5jj7vewyrrn" path="res://assets/lamp inspection/lamp_pullingthing_pulled_down.png" id="15_jscy8"]
 [ext_resource type="Texture2D" uid="uid://da6eouajnvmw0" path="res://assets/lamp inspection/sticky_highlight.png" id="16_muem4"]
 [ext_resource type="Texture2D" uid="uid://cte88hof52jan" path="res://assets/lamp inspection/lamp_pullingthing_unpulled.png" id="17_dp3eg"]
 [ext_resource type="Texture2D" uid="uid://c05b27wdcbxp7" path="res://assets/lamp inspection/lamp_pullingthing_pulled.png" id="18_0ld40"]
@@ -63,6 +64,55 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 3
 physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_0wfyh")
+
+[sub_resource type="Animation" id="Animation_pm3ni"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Inspection Canvas/Control/lamp_string:texture_normal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("17_dp3eg")]
+}
+
+[sub_resource type="Animation" id="Animation_y6deb"]
+resource_name = "lamp_pull"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Inspection Canvas/Control/lamp_string:texture_normal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666669, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("17_dp3eg"), ExtResource("15_jscy8"), ExtResource("17_dp3eg")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Inspection Canvas/Control/lamp_string:texture_hover")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16666669, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("18_0ld40"), ExtResource("15_jscy8"), ExtResource("18_0ld40")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_og1vs"]
+_data = {
+&"RESET": SubResource("Animation_pm3ni"),
+&"lamp_pull": SubResource("Animation_y6deb")
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gqmmt"]
 bg_color = Color(0.6795125, 0.33008245, 1.92523e-07, 1)
@@ -121,18 +171,22 @@ position = Vector2(335, 192)
 position = Vector2(145, 251)
 collision_layer = 3
 
-[node name="Inspection Handler" type="Node" parent="." unique_id=970271205 node_paths=PackedStringArray("lamp_canvas", "done_button", "sticky")]
+[node name="Inspection Handler" type="Node" parent="." unique_id=970271205 node_paths=PackedStringArray("lamp_canvas", "done_button", "sticky", "anim", "lamp_texture")]
 script = ExtResource("13_a8y0u")
 lamp_canvas = NodePath("../Inspection Canvas")
 done_button = NodePath("../Inspection Canvas/Control/done")
 sticky = NodePath("../Inspection Canvas/Control/sticky_note_actual")
+anim = NodePath("AnimationPlayer")
+lamp_texture = NodePath("../Inspection Canvas/Control/TextureRect")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Inspection Handler" unique_id=830995085]
+libraries/ = SubResource("AnimationLibrary_og1vs")
 
 [node name="Inspection Canvas" type="CanvasLayer" parent="." unique_id=1216834879]
 process_mode = 3
 
 [node name="Control" type="Control" parent="Inspection Canvas" unique_id=751527157]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -202,4 +256,5 @@ theme_override_styles/focus = ExtResource("21_yc10j")
 text = "done"
 
 [connection signal="pressed" from="Inspection Canvas/Control/sticky_note" to="Inspection Handler" method="_on_sticky_note_pressed"]
+[connection signal="pressed" from="Inspection Canvas/Control/lamp_string" to="Inspection Handler" method="_on_lamp_string_pressed"]
 [connection signal="pressed" from="Inspection Canvas/Control/done" to="Inspection Handler" method="_on_done_pressed"]
