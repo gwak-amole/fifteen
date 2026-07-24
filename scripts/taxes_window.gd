@@ -8,7 +8,8 @@ signal make_me_front(name: String)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	viewer_2005.hide()
+	if viewer_2005:
+		viewer_2005.hide()
 	viewer_2006.hide()
 	viewer_2007.hide()
 
@@ -35,10 +36,9 @@ func _on_xbutton_pressed() -> void:
 
 
 func _on_title_bar_make_front() -> void:
-	print(name)
 	if name.contains("family"):
-		print("this is family window")
 		make_me_front.emit("fam")
 	elif name.contains("taxes"):
-		print("this is taxes window")
 		make_me_front.emit("taxes")
+	elif name.contains("vacation"):
+		make_me_front.emit("vacation")

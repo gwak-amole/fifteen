@@ -2,14 +2,13 @@
 
 [ext_resource type="Script" uid="uid://b8vwt16n885kf" path="res://scripts/desktop.gd" id="1_pkmwo"]
 [ext_resource type="Texture2D" uid="uid://c656a0bbclvcl" path="res://assets/computer/desktop/desktop.png" id="1_xxa2h"]
-[ext_resource type="Texture2D" uid="uid://dqblvo4ptnv0h" path="res://assets/computer/desktop/start_button_desktop.png" id="2_81rff"]
-[ext_resource type="Texture2D" uid="uid://ctm0fxrjhym7u" path="res://assets/computer/desktop/time.png" id="3_ox5hf"]
 [ext_resource type="Texture2D" uid="uid://4t0a6sfu2er3" path="res://assets/computer/desktop/documents.png" id="4_ox5hf"]
 [ext_resource type="FontFile" uid="uid://dui6j34xrkei6" path="res://fonts/DotGothic16 copy/DotGothic16-Regular.ttf" id="5_6ajoh"]
 [ext_resource type="Texture2D" uid="uid://w215fomsd6xh" path="res://assets/computer/desktop/directory.png" id="6_veafp"]
 [ext_resource type="Texture2D" uid="uid://dedty888htyrt" path="res://assets/computer/desktop/trashbin.png" id="7_veafp"]
 [ext_resource type="PackedScene" uid="uid://cef0480xm5qxd" path="res://scenes/taxes_window.tscn" id="9_gl26t"]
 [ext_resource type="PackedScene" uid="uid://dwk2hau3nyha8" path="res://scenes/family_window.tscn" id="10_vcvwy"]
+[ext_resource type="PackedScene" uid="uid://sls065aobdo2" path="res://scenes/vacation_window.tscn" id="11_nikxi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pkmwo"]
 bg_color = Color(1, 1, 1, 0.54901963)
@@ -18,10 +17,11 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[node name="desktop" type="CanvasLayer" unique_id=1886967312 node_paths=PackedStringArray("taxes_window", "fam_window")]
+[node name="desktop" type="CanvasLayer" unique_id=1886967312 node_paths=PackedStringArray("taxes_window", "fam_window", "vacation_window")]
 script = ExtResource("1_pkmwo")
 taxes_window = NodePath("taxes_window")
 fam_window = NodePath("family_window")
+vacation_window = NodePath("vacation_window")
 
 [node name="Control" type="Control" parent="." unique_id=1970446500]
 texture_filter = 1
@@ -40,22 +40,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_xxa2h")
-
-[node name="start" type="TextureButton" parent="Control" unique_id=1429205643]
-layout_mode = 0
-offset_left = 70.0
-offset_top = 448.0
-offset_right = 142.0
-offset_bottom = 473.0
-texture_normal = ExtResource("2_81rff")
-
-[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1514386621]
-layout_mode = 0
-offset_left = 816.0
-offset_top = 448.0
-offset_right = 888.0
-offset_bottom = 473.0
-texture = ExtResource("3_ox5hf")
 
 [node name="left_apps" type="VBoxContainer" parent="Control" unique_id=1993881003]
 layout_mode = 0
@@ -165,9 +149,15 @@ visible = false
 [node name="family_window" parent="." unique_id=370778253 instance=ExtResource("10_vcvwy")]
 visible = false
 
+[node name="vacation_window" parent="." unique_id=717056588 instance=ExtResource("11_nikxi")]
+visible = false
+
 [connection signal="pressed" from="Control/left_apps/taxes" to="." method="_on_taxes_pressed"]
 [connection signal="pressed" from="Control/left_apps/family" to="." method="_on_family_pressed"]
+[connection signal="pressed" from="Control/left_apps/vacation" to="." method="_on_vacation_pressed"]
 [connection signal="gui_input" from="taxes_window" to="." method="_on_taxes_window_gui_input"]
 [connection signal="make_me_front" from="taxes_window" to="." method="_on_taxes_window_make_me_front"]
 [connection signal="gui_input" from="family_window" to="." method="_on_family_window_gui_input"]
 [connection signal="make_me_front" from="family_window" to="." method="_on_family_window_make_me_front"]
+[connection signal="gui_input" from="vacation_window" to="." method="_on_vacation_window_gui_input"]
+[connection signal="make_me_front" from="vacation_window" to="." method="_on_vacation_window_make_me_front"]

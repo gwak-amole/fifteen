@@ -1,0 +1,238 @@
+[gd_scene format=3 uid="uid://sls065aobdo2"]
+
+[ext_resource type="Script" uid="uid://dn0j0ei0dge3g" path="res://scripts/taxes_window.gd" id="1_tt7l4"]
+[ext_resource type="Texture2D" uid="uid://ckmqj05niurwf" path="res://assets/computer/desktop/blank_window.png" id="2_phsh6"]
+[ext_resource type="Texture2D" uid="uid://3f8lp086t0po" path="res://assets/computer/desktop/xbutton.png" id="3_0djch"]
+[ext_resource type="Texture2D" uid="uid://6agpq12yol7e" path="res://assets/computer/desktop/image_file.png" id="4_gsi2h"]
+[ext_resource type="FontFile" uid="uid://dui6j34xrkei6" path="res://fonts/DotGothic16 copy/DotGothic16-Regular.ttf" id="5_6s55y"]
+[ext_resource type="Texture2D" uid="uid://v5vdtqhwjafk" path="res://assets/computer/desktop/txtviewer.png" id="6_tp4nu"]
+[ext_resource type="Script" uid="uid://dgxn328wlohw5" path="res://scripts/bali_viewer.gd" id="7_phsh6"]
+[ext_resource type="Texture2D" uid="uid://dg54x2o33gu3x" path="res://assets/computer/desktop/vacation window/bali_image.png" id="8_tt7l4"]
+[ext_resource type="Script" uid="uid://2rtx54ffd04d" path="res://scripts/title_bar_viewer.gd" id="9_frpux"]
+[ext_resource type="Texture2D" uid="uid://ce4dg4skl0b1s" path="res://assets/computer/desktop/vacation window/rome_image.png" id="10_phsh6"]
+[ext_resource type="Script" uid="uid://dj8pb2qbrlxay" path="res://scripts/title_bar.gd" id="11_fqbmt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rpegq"]
+
+[node name="vacation_window" type="Control" unique_id=504178834 node_paths=PackedStringArray("viewer_2007", "viewer_2006", "viewer_2005")]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tt7l4")
+viewer_2007 = NodePath("bali viewer")
+viewer_2006 = NodePath("rome viewer")
+viewer_2005 = NodePath("")
+
+[node name="window_back" type="TextureRect" parent="." unique_id=1503141535]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.0
+offset_top = -105.0
+offset_right = 190.0
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_phsh6")
+
+[node name="xbutton" type="TextureButton" parent="." unique_id=1635917178]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 162.0
+offset_top = -103.0
+offset_right = 184.0
+offset_bottom = -81.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_0djch")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=983017839]
+layout_mode = 0
+offset_left = -166.0
+offset_top = -45.0
+offset_right = 10.0
+offset_bottom = 14.0
+
+[node name="wifey" type="TextureButton" parent="HBoxContainer" unique_id=1458465560]
+layout_mode = 2
+texture_normal = ExtResource("4_gsi2h")
+
+[node name="image1" type="Label" parent="HBoxContainer/wifey" unique_id=2064238696]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -15.0
+offset_top = -9.0
+offset_right = 15.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_6s55y")
+theme_override_font_sizes/font_size = 12
+text = "bali"
+horizontal_alignment = 1
+
+[node name="2006" type="TextureButton" parent="HBoxContainer" unique_id=336260698]
+layout_mode = 2
+texture_normal = ExtResource("4_gsi2h")
+
+[node name="image2" type="Label" parent="HBoxContainer/2006" unique_id=917254093]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -15.0
+offset_top = -9.0
+offset_right = 15.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_6s55y")
+theme_override_font_sizes/font_size = 12
+text = "rome"
+horizontal_alignment = 1
+
+[node name="bali viewer" type="TextureRect" parent="." unique_id=138351585]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.0
+offset_top = -165.0
+offset_right = 130.0
+offset_bottom = 165.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_tp4nu")
+script = ExtResource("7_phsh6")
+
+[node name="image" type="TextureRect" parent="bali viewer" unique_id=1857932252]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 28.0
+offset_right = 255.0
+offset_bottom = 319.0
+texture = ExtResource("8_tt7l4")
+
+[node name="title_bar" type="Panel" parent="bali viewer" unique_id=1114142528 node_paths=PackedStringArray("window")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -124.0
+offset_top = 3.0
+offset_right = 96.0
+offset_bottom = 26.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_rpegq")
+script = ExtResource("9_frpux")
+window = NodePath("..")
+
+[node name="xbutton7" type="TextureButton" parent="bali viewer" unique_id=47547706]
+layout_mode = 0
+offset_left = 231.0
+offset_top = 3.0
+offset_right = 253.0
+offset_bottom = 25.0
+texture_normal = ExtResource("3_0djch")
+
+[node name="rome viewer" type="TextureRect" parent="." unique_id=987349546]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.0
+offset_top = -165.0
+offset_right = 130.0
+offset_bottom = 165.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_tp4nu")
+script = ExtResource("7_phsh6")
+
+[node name="image" type="TextureRect" parent="rome viewer" unique_id=73072885]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 28.0
+offset_right = 255.0
+offset_bottom = 319.0
+texture = ExtResource("10_phsh6")
+
+[node name="title_bar" type="Panel" parent="rome viewer" unique_id=1912933926 node_paths=PackedStringArray("window")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -124.0
+offset_top = 3.0
+offset_right = 96.0
+offset_bottom = 26.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_rpegq")
+script = ExtResource("9_frpux")
+window = NodePath("..")
+
+[node name="xbutton6" type="TextureButton" parent="rome viewer" unique_id=832954908]
+layout_mode = 0
+offset_left = 231.0
+offset_top = 3.0
+offset_right = 253.0
+offset_bottom = 25.0
+texture_normal = ExtResource("3_0djch")
+
+[node name="Label" type="Label" parent="rome viewer" unique_id=116065735]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 284.0
+offset_right = 246.0
+offset_bottom = 308.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_6s55y")
+text = "roman in messages is my buddy"
+
+[node name="title_bar" type="Panel" parent="." unique_id=873600373 node_paths=PackedStringArray("window")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -182.0
+offset_top = -102.0
+offset_right = 160.0
+offset_bottom = -81.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_rpegq")
+script = ExtResource("11_fqbmt")
+window = NodePath("..")
+
+[connection signal="pressed" from="xbutton" to="." method="_on_xbutton_pressed"]
+[connection signal="pressed" from="HBoxContainer/wifey" to="." method="_on_2007_pressed"]
+[connection signal="pressed" from="HBoxContainer/2006" to="." method="_on_2006_pressed"]
+[connection signal="pressed" from="bali viewer/xbutton7" to="bali viewer" method="_on_xbutton_7_pressed"]
+[connection signal="pressed" from="rome viewer/xbutton6" to="bali viewer" method="_on_xbutton_6_pressed"]
+[connection signal="pressed" from="rome viewer/xbutton6" to="rome viewer" method="_on_xbutton_6_pressed"]
+[connection signal="make_front" from="title_bar" to="." method="_on_title_bar_make_front"]

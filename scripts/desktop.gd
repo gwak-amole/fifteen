@@ -2,11 +2,13 @@ extends CanvasLayer
 
 @export var taxes_window: Control
 @export var fam_window: Control
+@export var vacation_window: Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	taxes_window.hide()
 	fam_window.hide()
+	vacation_window.hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -44,3 +46,18 @@ func _on_taxes_window_make_me_front(arg: String) -> void:
 func _on_family_window_make_me_front(arg: String) -> void:
 	if arg == "fam":
 		move_child(fam_window, -1)
+
+
+func _on_vacation_window_make_me_front(arg: String) -> void:
+	if arg == "vacation":
+		move_child(vacation_window, -1)
+
+
+func _on_vacation_pressed() -> void:
+	vacation_window.show();
+
+
+func _on_vacation_window_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			move_child(vacation_window, -1);
