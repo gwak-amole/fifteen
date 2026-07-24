@@ -70,7 +70,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Inspection Canvas/Control/lamp_string:texture_normal")
+tracks/0/path = NodePath("../Lamp Inspection/Control/lamp_string:texture_normal")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -86,7 +86,7 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Inspection Canvas/Control/lamp_string:texture_normal")
+tracks/0/path = NodePath("../Lamp Inspection/Control/lamp_string:texture_normal")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -98,7 +98,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../Inspection Canvas/Control/lamp_string:texture_hover")
+tracks/1/path = NodePath("../Lamp Inspection/Control/lamp_string:texture_hover")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -173,21 +173,21 @@ collision_layer = 3
 
 [node name="Inspection Handler" type="Node" parent="." unique_id=970271205 node_paths=PackedStringArray("lamp_canvas", "done_button", "sticky", "anim", "lamp_texture", "lamp_sprite")]
 script = ExtResource("13_a8y0u")
-lamp_canvas = NodePath("../Inspection Canvas")
-done_button = NodePath("../Inspection Canvas/Control/done")
-sticky = NodePath("../Inspection Canvas/Control/sticky_note_actual")
+lamp_canvas = NodePath("../Lamp Inspection")
+done_button = NodePath("../Lamp Inspection/Control/done")
+sticky = NodePath("../Lamp Inspection/Control/sticky_note_actual")
 anim = NodePath("AnimationPlayer")
-lamp_texture = NodePath("../Inspection Canvas/Control/TextureRect")
+lamp_texture = NodePath("../Lamp Inspection/Control/TextureRect")
 lamp_sprite = NodePath("../furniture/lamp")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Inspection Handler" unique_id=830995085]
 libraries/ = SubResource("AnimationLibrary_og1vs")
 
-[node name="Inspection Canvas" type="CanvasLayer" parent="." unique_id=1216834879]
+[node name="Lamp Inspection" type="CanvasLayer" parent="." unique_id=1216834879]
 process_mode = 3
 visible = false
 
-[node name="Control" type="Control" parent="Inspection Canvas" unique_id=751527157]
+[node name="Control" type="Control" parent="Lamp Inspection" unique_id=751527157]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
@@ -196,14 +196,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="Inspection Canvas/Control" unique_id=809172911]
+[node name="TextureRect" type="TextureRect" parent="Lamp Inspection/Control" unique_id=809172911]
 texture_filter = 1
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("14_a8y0u")
 
-[node name="sticky_note" type="TextureButton" parent="Inspection Canvas/Control" unique_id=1420307633]
+[node name="sticky_note" type="TextureButton" parent="Lamp Inspection/Control" unique_id=1420307633]
 layout_mode = 0
 offset_left = 170.0
 offset_top = 276.0
@@ -212,7 +212,7 @@ offset_bottom = 386.0
 texture_normal = ExtResource("15_jbj1t")
 texture_hover = ExtResource("16_muem4")
 
-[node name="lamp_string" type="TextureButton" parent="Inspection Canvas/Control" unique_id=145586545]
+[node name="lamp_string" type="TextureButton" parent="Lamp Inspection/Control" unique_id=145586545]
 layout_mode = 0
 offset_left = 363.0
 offset_top = 256.0
@@ -221,7 +221,7 @@ offset_bottom = 406.0
 texture_normal = ExtResource("17_dp3eg")
 texture_hover = ExtResource("18_0ld40")
 
-[node name="sticky_note_actual" type="TextureRect" parent="Inspection Canvas/Control" unique_id=1578256108]
+[node name="sticky_note_actual" type="TextureRect" parent="Lamp Inspection/Control" unique_id=1578256108]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -237,7 +237,7 @@ grow_vertical = 2
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("19_0ld40")
 
-[node name="done" type="Button" parent="Inspection Canvas/Control" unique_id=1992751173]
+[node name="done" type="Button" parent="Lamp Inspection/Control" unique_id=1992751173]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -257,6 +257,6 @@ theme_override_styles/hover = ExtResource("21_yc10j")
 theme_override_styles/focus = ExtResource("21_yc10j")
 text = "done"
 
-[connection signal="pressed" from="Inspection Canvas/Control/sticky_note" to="Inspection Handler" method="_on_sticky_note_pressed"]
-[connection signal="pressed" from="Inspection Canvas/Control/lamp_string" to="Inspection Handler" method="_on_lamp_string_pressed"]
-[connection signal="pressed" from="Inspection Canvas/Control/done" to="Inspection Handler" method="_on_done_pressed"]
+[connection signal="pressed" from="Lamp Inspection/Control/sticky_note" to="Inspection Handler" method="_on_sticky_note_pressed"]
+[connection signal="pressed" from="Lamp Inspection/Control/lamp_string" to="Inspection Handler" method="_on_lamp_string_pressed"]
+[connection signal="pressed" from="Lamp Inspection/Control/done" to="Inspection Handler" method="_on_done_pressed"]
