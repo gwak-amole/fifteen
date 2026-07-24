@@ -1,5 +1,7 @@
 ~ start
-Oh, a computer.
+if DialogueHandler.first_time_seeing_computer:
+	Oh, a computer.
+	do DialogueHandler.first_time_seeing_computer = false
 if !DialogueHandler.saw_lamp_password:
 	Hm... it's locked with some password.
 else:

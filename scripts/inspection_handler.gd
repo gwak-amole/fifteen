@@ -16,6 +16,7 @@ func _ready() -> void:
 	sticky.hide()
 	DialogueHandler.connect("checking_lamp", open_lamp)
 	DialogueHandler.connect("trying_password", show_password_screen)
+	comp_login_screen.connect("exit_computer_login", exit_computer_login)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -55,3 +56,6 @@ func _on_lamp_string_pressed() -> void:
 func show_password_screen():
 	comp_login_screen.show();
 	comp_login_screen.initialize();
+
+func exit_computer_login():
+	comp_login_screen.hide();

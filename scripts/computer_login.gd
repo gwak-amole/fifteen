@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+signal exit_computer_login
 
 @export var line_edit = LineEdit
 var tried = false;
@@ -26,3 +27,7 @@ func _on_login_button_pressed() -> void:
 		tried = true;
 		line_edit.placeholder_text = "Try again"
 		line_edit.text = "";
+
+
+func _on_done_pressed() -> void:
+	exit_computer_login.emit()

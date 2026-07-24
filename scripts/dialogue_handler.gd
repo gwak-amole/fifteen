@@ -4,6 +4,7 @@ signal checking_lamp
 signal trying_password
 
 var first_time_on_computer = true
+var first_time_seeing_computer = true;
 var saw_lamp_password = false
 
 # Called when the node enters the scene tree for the first time.
