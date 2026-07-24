@@ -2,6 +2,7 @@ extends Control
 @export var viewer_2007: TextureRect
 @export var viewer_2006: TextureRect
 @export var viewer_2005: TextureRect
+signal make_me_front(name: String)
 
 
 
@@ -31,3 +32,13 @@ func _on_2007_pressed() -> void:
 
 func _on_xbutton_pressed() -> void:
 	hide()
+
+
+func _on_title_bar_make_front() -> void:
+	print(name)
+	if name.contains("family"):
+		print("this is family window")
+		make_me_front.emit("fam")
+	elif name.contains("taxes"):
+		print("this is taxes window")
+		make_me_front.emit("taxes")

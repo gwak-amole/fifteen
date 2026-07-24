@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://w215fomsd6xh" path="res://assets/computer/desktop/directory.png" id="6_veafp"]
 [ext_resource type="Texture2D" uid="uid://dedty888htyrt" path="res://assets/computer/desktop/trashbin.png" id="7_veafp"]
 [ext_resource type="PackedScene" uid="uid://cef0480xm5qxd" path="res://scenes/taxes_window.tscn" id="9_gl26t"]
+[ext_resource type="PackedScene" uid="uid://dwk2hau3nyha8" path="res://scenes/family_window.tscn" id="10_vcvwy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pkmwo"]
 bg_color = Color(1, 1, 1, 0.54901963)
@@ -17,9 +18,10 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[node name="desktop" type="CanvasLayer" unique_id=1886967312 node_paths=PackedStringArray("taxes_window")]
+[node name="desktop" type="CanvasLayer" unique_id=1886967312 node_paths=PackedStringArray("taxes_window", "fam_window")]
 script = ExtResource("1_pkmwo")
 taxes_window = NodePath("taxes_window")
+fam_window = NodePath("family_window")
 
 [node name="Control" type="Control" parent="." unique_id=1970446500]
 texture_filter = 1
@@ -158,5 +160,14 @@ text = "trash"
 horizontal_alignment = 1
 
 [node name="taxes_window" parent="." unique_id=504178834 instance=ExtResource("9_gl26t")]
+visible = false
+
+[node name="family_window" parent="." unique_id=370778253 instance=ExtResource("10_vcvwy")]
+visible = false
 
 [connection signal="pressed" from="Control/left_apps/taxes" to="." method="_on_taxes_pressed"]
+[connection signal="pressed" from="Control/left_apps/family" to="." method="_on_family_pressed"]
+[connection signal="gui_input" from="taxes_window" to="." method="_on_taxes_window_gui_input"]
+[connection signal="make_me_front" from="taxes_window" to="." method="_on_taxes_window_make_me_front"]
+[connection signal="gui_input" from="family_window" to="." method="_on_family_window_gui_input"]
+[connection signal="make_me_front" from="family_window" to="." method="_on_family_window_make_me_front"]

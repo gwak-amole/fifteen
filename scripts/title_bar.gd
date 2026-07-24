@@ -1,5 +1,6 @@
 extends Panel
 
+signal make_front
 @export var window: Control
 var dragging := false
 var drag_offset = Vector2.ZERO
@@ -16,6 +17,8 @@ func _process(delta: float) -> void:
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
+			if event.pressed:
+				make_front.emit()
 			dragging = event.pressed
 			
 			if dragging:
@@ -23,5 +26,6 @@ func _gui_input(event: InputEvent) -> void:
 			
 			accept_event()
 	elif event is InputEventMouseMotion and dragging:
+		make_front.emit()
 		window.global_position = event.global_position + drag_offset
 		accept_event()

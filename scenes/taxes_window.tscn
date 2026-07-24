@@ -306,3 +306,4 @@ window = NodePath("..")
 [connection signal="pressed" from="2007_viewer/xbutton7" to="2007_viewer" method="_on_xbutton_7_pressed"]
 [connection signal="pressed" from="2006_viewer/xbutton6" to="2006_viewer" method="_on_xbutton_6_pressed"]
 [connection signal="pressed" from="2005_viewer/xbutton5" to="2005_viewer" method="_on_xbutton_5_pressed"]
+[connection signal="make_front" from="title_bar" to="." method="_on_title_bar_make_front"]
