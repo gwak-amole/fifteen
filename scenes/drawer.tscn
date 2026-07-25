@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c0ypwwmlnpwvs" path="res://assets/drawer/shipping_tag_selected.png" id="7_rokag"]
 [ext_resource type="FontFile" uid="uid://dui6j34xrkei6" path="res://fonts/DotGothic16 copy/DotGothic16-Regular.ttf" id="9_8wanr"]
 [ext_resource type="StyleBox" uid="uid://cshlc3v64nf8e" path="res://scenes/ui/done_button_hover.tres" id="10_x262c"]
+[ext_resource type="Texture2D" uid="uid://dp7qb7vemq2pv" path="res://assets/drawer/shipping_tag_close.png" id="11_x262c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jlc4d"]
 bg_color = Color(0.6795125, 0.33008245, 1.92523e-07, 1)
@@ -23,8 +24,9 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[node name="drawer" type="CanvasLayer" unique_id=89181989]
+[node name="drawer" type="CanvasLayer" unique_id=89181989 node_paths=PackedStringArray("close_up")]
 script = ExtResource("1_rokag")
+close_up = NodePath("Control/close_up_tag")
 
 [node name="Control" type="Control" parent="." unique_id=273379447]
 layout_mode = 3
@@ -82,6 +84,19 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_jlc4d")
 theme_override_styles/hover = ExtResource("10_x262c")
 theme_override_styles/focus = ExtResource("10_x262c")
 text = "I'm done"
+metadata/_edit_use_anchors_ = true
+
+[node name="close_up_tag" type="TextureRect" parent="Control" unique_id=1710889165]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.41145834
+anchor_top = 0.11666667
+anchor_right = 0.5885417
+anchor_bottom = 0.5425926
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_x262c")
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Control/blush" to="." method="_on_blush_pressed"]

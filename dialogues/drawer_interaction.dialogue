@@ -9,6 +9,12 @@ Do you want to open the drawer?
 This is a shipping tag. Do you want to flip it over?
 - Yes
 	do DialogueHandler.show_tag()
+	This is probably not enough evidence alone to incriminate Miller, but it's a good start.
+	- Take the evidence
+		do DialogueHandler.hide_tag()
+		do DialogueHandler.evidence_found += 1
+	- Just leave it for now
+		do DialogueHandler.hide_tag()
 - No
 => END
 

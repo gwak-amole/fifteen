@@ -28,7 +28,6 @@ func _ready() -> void:
 	DialogueHandler.connect("showing_safe_view", show_safe_view)
 	DialogueHandler.connect("rewind", rewind_game)
 	DialogueHandler.connect("opening_drawer", open_drawer)
-	DialogueHandler.connect("showing_shipping_tag", show_tag)
 	comp_login_screen.connect("exit_computer_login", exit_computer_login)
 
 
@@ -89,6 +88,3 @@ func rewind_game():
 
 func open_drawer():
 	drawer.show();
-
-func show_tag():
-	pass

@@ -10,6 +10,7 @@ signal player_show_e
 signal player_hide_e
 signal opening_drawer
 signal showing_shipping_tag
+signal hiding_shipping_tag
 
 # general game signals
 signal update_time
@@ -21,6 +22,7 @@ var current_run: int = 1;
 var time_remaining:=180.0
 var evidence_collected: int;
 var hold_time: float = 0;
+var evidence_found = 0;
 
 var first_time_on_computer = true
 var first_time_seeing_computer = true;
@@ -113,3 +115,6 @@ func open_drawer():
 
 func show_tag():
 	showing_shipping_tag.emit()
+
+func hide_tag():
+	hiding_shipping_tag.emit()
