@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://e70fxdl3fuwi"
+path="res://.godot/imported/drawer_interaction.dialogue-4ec3de226a015df365dc835d12a60649.tres"
+
+[deps]
+
+source_file="res://dialogues/drawer_interaction.dialogue"
+dest_files=["res://.godot/imported/drawer_interaction.dialogue-4ec3de226a015df365dc835d12a60649.tres"]
+
+[params]
+
+defaults=true

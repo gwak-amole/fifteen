@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://c85wxvoo7uetv" path="res://scenes/desktop.tscn" id="24_y6deb"]
 [ext_resource type="PackedScene" uid="uid://cji88scy5ltt0" path="res://scenes/safe.tscn" id="25_og1vs"]
 [ext_resource type="PackedScene" uid="uid://b6pqvp44qwyht" path="res://scenes/countdown.tscn" id="26_2wyq8"]
+[ext_resource type="PackedScene" uid="uid://bhdhocwewej6r" path="res://scenes/drawer.tscn" id="26_vxglm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0wfyh"]
 texture = ExtResource("1_o5qli")
@@ -175,7 +176,7 @@ position = Vector2(338, 196)
 position = Vector2(145, 251)
 collision_layer = 3
 
-[node name="Inspection Handler" type="Node" parent="." unique_id=970271205 node_paths=PackedStringArray("lamp_canvas", "done_button", "sticky", "anim", "lamp_texture", "lamp_sprite", "comp_login_screen", "desktop", "safe_screen", "player")]
+[node name="Inspection Handler" type="Node" parent="." unique_id=970271205 node_paths=PackedStringArray("lamp_canvas", "done_button", "sticky", "anim", "lamp_texture", "lamp_sprite", "comp_login_screen", "desktop", "safe_screen", "player", "drawer")]
 script = ExtResource("13_a8y0u")
 lamp_canvas = NodePath("../Lamp Inspection")
 done_button = NodePath("../Lamp Inspection/Control/done")
@@ -187,6 +188,7 @@ comp_login_screen = NodePath("../Computer Login")
 desktop = NodePath("../desktop")
 safe_screen = NodePath("../safe")
 player = NodePath("../player")
+drawer = NodePath("../drawer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Inspection Handler" unique_id=830995085]
 libraries/ = SubResource("AnimationLibrary_og1vs")
@@ -273,6 +275,9 @@ inspection_handler = NodePath("../Inspection Handler")
 visible = false
 
 [node name="safe" parent="." unique_id=139497989 instance=ExtResource("25_og1vs")]
+visible = false
+
+[node name="drawer" parent="." unique_id=89181989 instance=ExtResource("26_vxglm")]
 visible = false
 
 [node name="Countdown" parent="." unique_id=1641727423 instance=ExtResource("26_2wyq8")]

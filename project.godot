@@ -49,7 +49,7 @@ r={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogues/lamp_interaction.dialogue", "res://dialogues/computer_interaction.dialogue", "res://dialogues/safe_interaction.dialogue", "res://dialogues/regular_interaction.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogues/lamp_interaction.dialogue", "res://dialogues/computer_interaction.dialogue", "res://dialogues/safe_interaction.dialogue", "res://dialogues/regular_interaction.dialogue", "res://dialogues/drawer_interaction.dialogue")
 
 [physics]
 

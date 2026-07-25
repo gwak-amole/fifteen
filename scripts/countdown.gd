@@ -19,4 +19,4 @@ func update_the_time():
 	time_label.text = str(int(DialogueHandler.time_remaining))
 
 func update_the_run_label():
-	run_label.text = "Run: " + str(DialogueHandler.current_run)
+	run_label.text = "Run: " + str(DialogueHandler.current_run) + "/3"

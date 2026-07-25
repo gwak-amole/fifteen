@@ -8,6 +8,8 @@ signal taking_shipment
 signal unlocking_trash
 signal player_show_e
 signal player_hide_e
+signal opening_drawer
+signal showing_shipping_tag
 
 # general game signals
 signal update_time
@@ -105,3 +107,9 @@ func rewind_game():
 
 func game_over():
 	print("game_over")
+	
+func open_drawer():
+	opening_drawer.emit()
+
+func show_tag():
+	showing_shipping_tag.emit()

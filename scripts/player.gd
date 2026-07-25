@@ -59,6 +59,9 @@ func _physics_process(delta: float) -> void:
 		elif DialogueHandler.last_name == "shelf":
 			var resource = load("res://dialogues/safe_interaction.dialogue")
 			DialogueManager.show_dialogue_balloon(resource, "start")
+		elif DialogueHandler.last_name == "desk1":
+			var resource = load("res://dialogues/drawer_interaction.dialogue")
+			DialogueManager.show_dialogue_balloon(resource, "start")
 		else:
 			var resource = load("res://dialogues/regular_interaction.dialogue")
 			DialogueManager.show_dialogue_balloon(resource, DialogueHandler.last_name)

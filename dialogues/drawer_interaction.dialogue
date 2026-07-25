@@ -1,0 +1,21 @@
+~ start
+Do you want to open the drawer?
+- Yes
+	do DialogueHandler.open_drawer()
+- No
+=> END
+
+~ shipping_tag
+This is a shipping tag. Do you want to flip it over?
+- Yes
+	do DialogueHandler.show_tag()
+- No
+=> END
+
+~ suntzu
+Sun Tzu's Art of War. A classic. Expected from a world-class international arms dealer.
+=> END
+
+~ blush
+Is this why is face is always pink like that?
+=> END
