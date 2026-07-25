@@ -282,6 +282,8 @@ visible = false
 
 [node name="Countdown" parent="." unique_id=1641727423 instance=ExtResource("26_2wyq8")]
 
+[node name="cutscene" type="AnimationPlayer" parent="." unique_id=375442307]
+
 [connection signal="pressed" from="Lamp Inspection/Control/sticky_note" to="Inspection Handler" method="_on_sticky_note_pressed"]
 [connection signal="pressed" from="Lamp Inspection/Control/lamp_string" to="Inspection Handler" method="_on_lamp_string_pressed"]
 [connection signal="pressed" from="Lamp Inspection/Control/done" to="Inspection Handler" method="_on_done_pressed"]

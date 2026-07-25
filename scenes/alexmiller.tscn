@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dmsupgtefpqb2"]
+
+[ext_resource type="SpriteFrames" uid="uid://j8kb68mp5lym" path="res://scenes/sprite_frames/alex_miller.tres" id="1_7x06h"]
+
+[node name="alexmiller" type="CharacterBody2D" unique_id=1101125696]
+texture_filter = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1514974100]
+sprite_frames = ExtResource("1_7x06h")
+animation = &"idle"
+frame_progress = 0.22711013

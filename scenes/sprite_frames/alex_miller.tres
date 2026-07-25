@@ -1,0 +1,58 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://j8kb68mp5lym"]
+
+[ext_resource type="Texture2D" uid="uid://bsqo5j0apidpv" path="res://assets/alexmiller/alexmiller.png" id="1_ooaje"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_joj7e"]
+atlas = ExtResource("1_ooaje")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_of5qw"]
+atlas = ExtResource("1_ooaje")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5gc6"]
+atlas = ExtResource("1_ooaje")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sj7oi"]
+atlas = ExtResource("1_ooaje")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_830i6"]
+atlas = ExtResource("1_ooaje")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpetk"]
+atlas = ExtResource("1_ooaje")
+region = Rect2(144, 48, 48, 48)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_joj7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_of5qw")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5gc6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sj7oi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_830i6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpetk")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
