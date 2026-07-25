@@ -20,7 +20,7 @@ signal rewind
 
 # general game stuff
 var current_run: int = 1;
-var time_remaining:=180.0
+var time_remaining:= 240.0
 var hold_time: float = 0;
 var evidence_found = 0;
 
@@ -105,7 +105,10 @@ func rewind_game():
 	rewind.emit()
 	current_run += 1
 	update_run.emit()
-	time_remaining = 180.0
+	if current_run == 2:
+		time_remaining = 180.0
+	elif current_run == 3:
+		time_remaining = 120.0
 	evidence_found = 0;
 	update_evidence.emit("reset")
 	screenshotted = false
