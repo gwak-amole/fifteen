@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://b6pqvp44qwyht"]
+
+[ext_resource type="Script" uid="uid://de6x2vmr4tdtg" path="res://scripts/countdown.gd" id="1_c8cft"]
+[ext_resource type="FontFile" uid="uid://dui6j34xrkei6" path="res://fonts/DotGothic16 copy/DotGothic16-Regular.ttf" id="2_c4awr"]
+
+[node name="Countdown" type="CanvasLayer" unique_id=1641727423 node_paths=PackedStringArray("time_label", "run_label")]
+script = ExtResource("1_c8cft")
+time_label = NodePath("VBoxContainer/Time Label")
+run_label = NodePath("VBoxContainer/Run Count Label")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1402173756]
+anchors_preset = -1
+anchor_left = 0.8822917
+anchor_top = 0.0055555557
+anchor_right = 0.99895835
+anchor_bottom = 0.17962962
+offset_left = -18.0
+offset_top = 8.0
+offset_right = -6.0
+offset_bottom = 8.0
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Time Label" type="Label" parent="VBoxContainer" unique_id=701509701]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_c4awr")
+theme_override_font_sizes/font_size = 36
+text = "180"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Run Count Label" type="Label" parent="VBoxContainer" unique_id=992794930]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_c4awr")
+theme_override_font_sizes/font_size = 25
+text = "Run:"
+horizontal_alignment = 1

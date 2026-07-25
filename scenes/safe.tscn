@@ -93,7 +93,6 @@ shipment_button = NodePath("unlocked/shipment")
 shipment_paper = NodePath("unlocked/shipment_paper")
 
 [node name="locked" type="Control" parent="." unique_id=1923838041]
-visible = false
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
@@ -151,6 +150,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 152.0
+offset_bottom = -183.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_ewslm")
@@ -228,6 +229,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_41tkx")
 text = ">"
 
 [node name="unlocked" type="Control" parent="." unique_id=1964965289]
+visible = false
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15

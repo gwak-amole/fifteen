@@ -9,6 +9,7 @@ extends Node
 @export var comp_login_screen: CanvasLayer
 @export var desktop: CanvasLayer
 @export var safe_screen: CanvasLayer
+@export var player: CharacterBody2D
 var lamp_on = true;
 
 # Called when the node enters the scene tree for the first time.
@@ -18,10 +19,12 @@ func _ready() -> void:
 	comp_login_screen.hide();
 	lamp_canvas.hide()
 	sticky.hide()
+	player.global_position = Vector2(145, 251)
 	DialogueHandler.connect("checking_lamp", open_lamp)
 	DialogueHandler.connect("trying_password", show_password_screen)
 	DialogueHandler.connect("exiting_safe_view", exit_safe_view)
 	DialogueHandler.connect("showing_safe_view", show_safe_view)
+	DialogueHandler.connect("rewind", rewind_game)
 	comp_login_screen.connect("exit_computer_login", exit_computer_login)
 
 
@@ -76,3 +79,6 @@ func show_safe_view():
 
 func exit_safe_view():
 	safe_screen.hide()
+
+func rewind_game():
+	get_tree().reload_current_scene();

@@ -9,6 +9,17 @@ signal unlocking_trash
 signal player_show_e
 signal player_hide_e
 
+# general game signals
+signal update_time
+signal update_run
+signal rewind
+
+# general game stuff
+var current_run: int = 1;
+var time_remaining:=180.0
+var evidence_collected: int;
+var hold_time: float = 0;
+
 var first_time_on_computer = true
 var first_time_seeing_computer = true;
 var saw_lamp_password = false
@@ -36,7 +47,22 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	time_remaining -= delta
+	update_time.emit()
+	if time_remaining <= 0:
+		rewind.emit()
+		game_over();
+	
+	if Input.is_action_pressed("r"):
+		hold_time += delta;
+		if hold_time >= 3.0:
+			print("rewinding")
+			rewind.emit();
+			rewind_game()
+			hold_time = 0;
+			
+	if Input.is_action_just_released("r"):
+		hold_time = 0;
 
 func check_lamp():
 	checking_lamp.emit()
@@ -69,3 +95,13 @@ func cannot_interact():
 func reload_e_interaction():
 	await get_tree().create_timer(0.25).timeout
 	played_once = false;
+
+func rewind_game():
+	print("rewinding game")
+	current_run += 1
+	time_remaining = 180.0
+	if current_run > 3:
+		game_over();
+
+func game_over():
+	print("game_over")
