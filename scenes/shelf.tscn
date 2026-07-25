@@ -9,8 +9,9 @@ size = Vector2(122, 58)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eyi4x"]
 size = Vector2(122, 20)
 
-[node name="shelf" type="StaticBody2D" unique_id=1280816116]
+[node name="shelf" type="StaticBody2D" unique_id=1280816116 node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_xj574")
+sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1813362346]
 texture_filter = 1

@@ -9,8 +9,9 @@ radius = 31.016125
 [sub_resource type="CircleShape2D" id="CircleShape2D_hudoc"]
 radius = 47.095646
 
-[node name="beanbag1" type="StaticBody2D" unique_id=228822516]
+[node name="beanbag1" type="StaticBody2D" unique_id=228822516 node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_1ml84")
+sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1952595397]
 texture_filter = 1

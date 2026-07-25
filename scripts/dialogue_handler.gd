@@ -67,6 +67,9 @@ func _process(delta: float) -> void:
 			
 	if Input.is_action_just_released("r"):
 		hold_time = 0;
+		
+	if evidence_found == 3:
+		end_game()
 
 func check_lamp():
 	checking_lamp.emit()

@@ -12,8 +12,11 @@ size = Vector2(86, 41)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_psa3u"]
 size = Vector2(27, 41)
 
-[node name="wardrobe" type="StaticBody2D" unique_id=395797442]
+[node name="wardrobe" type="StaticBody2D" unique_id=395797442 node_paths=PackedStringArray("sprite", "reg_area", "mirror_area")]
 script = ExtResource("1_wla1g")
+sprite = NodePath("Sprite2D")
+reg_area = NodePath("interaction")
+mirror_area = NodePath("interaction_mirror")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1325028311]
 texture_filter = 1

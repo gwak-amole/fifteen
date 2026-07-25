@@ -9,8 +9,9 @@ size = Vector2(249, 130)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_raxto"]
 size = Vector2(255, 135)
 
-[node name="bed" type="StaticBody2D" unique_id=955391343]
+[node name="bed" type="StaticBody2D" unique_id=955391343 node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_fqty4")
+sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1749396747]
 texture_filter = 1

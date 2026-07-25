@@ -58,8 +58,4 @@ func _on_goldbars_pressed() -> void:
 
 
 func _on_done_pressed() -> void:
-	if DialogueHandler.took_files:
-		DialogueHandler.end_game();
-		hide();
-	else:
-		hide();
+	hide();
