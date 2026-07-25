@@ -403,7 +403,7 @@ visible = false
 [node name="Countdown" parent="." unique_id=1641727423 instance=ExtResource("26_2wyq8")]
 
 [node name="alexmiller" parent="." unique_id=1101125696 instance=ExtResource("28_2f3dj")]
-position = Vector2(207, 400)
+position = Vector2(206, 569)
 
 [node name="cutscene" type="AnimationPlayer" parent="." unique_id=375442307]
 libraries/ = SubResource("AnimationLibrary_fv21b")

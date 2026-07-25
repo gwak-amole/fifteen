@@ -121,7 +121,7 @@ func rewind_game():
 		game_over();
 
 func game_over():
-	print("game_over")
+	get_tree().change_scene_to_file("res://scenes/game_over_screen.tscn")
 	
 func open_drawer():
 	opening_drawer.emit()
@@ -131,3 +131,12 @@ func show_tag():
 
 func hide_tag():
 	hiding_shipping_tag.emit()
+
+func reset():
+	current_run = 1;
+	time_remaining = 10.0
+	hold_time = 0;
+	evidence_found = 0;
+	update_evidence.emit("reset")
+	update_run.emit()
+	update_time.emit()
