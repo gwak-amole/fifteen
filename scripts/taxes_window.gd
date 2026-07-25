@@ -30,6 +30,8 @@ func _on_2006_pressed() -> void:
 func _on_2007_pressed() -> void:
 	viewer_2007.show()
 	if viewer_2007.name == "rom_b":
+		var resource = load("res://dialogues/computer_interaction.dialogue")
+		DialogueManager.show_dialogue_balloon(resource, "screenshot")
 		DialogueHandler.knows_safe_code = true;
 
 

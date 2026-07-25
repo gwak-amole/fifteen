@@ -24,6 +24,8 @@ Inspect the safe items.
 ~ shipment
 This should be enough to incriminate Alex Miller.
 - Take it.
+	do DialogueHandler.evidence_found += 1
+	do DialogueHandler.update_evidence.emit("receipt")
 	do DialogueHandler.take_shipment()
 => END
 

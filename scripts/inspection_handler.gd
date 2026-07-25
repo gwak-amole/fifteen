@@ -26,8 +26,8 @@ func _ready() -> void:
 	DialogueHandler.connect("trying_password", show_password_screen)
 	DialogueHandler.connect("exiting_safe_view", exit_safe_view)
 	DialogueHandler.connect("showing_safe_view", show_safe_view)
-	DialogueHandler.connect("rewind", rewind_game)
 	DialogueHandler.connect("opening_drawer", open_drawer)
+	DialogueHandler.connect("rewind", rewinding)
 	comp_login_screen.connect("exit_computer_login", exit_computer_login)
 
 
@@ -83,8 +83,9 @@ func show_safe_view():
 func exit_safe_view():
 	safe_screen.hide()
 
-func rewind_game():
-	get_tree().reload_current_scene();
-
 func open_drawer():
 	drawer.show();
+	
+func rewinding():
+	if get_tree():
+		get_tree().reload_current_scene()

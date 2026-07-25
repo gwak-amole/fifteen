@@ -93,6 +93,7 @@ shipment_button = NodePath("unlocked/shipment")
 shipment_paper = NodePath("unlocked/shipment_paper")
 
 [node name="locked" type="Control" parent="." unique_id=1923838041]
+visible = false
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
@@ -229,7 +230,6 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_41tkx")
 text = ">"
 
 [node name="unlocked" type="Control" parent="." unique_id=1964965289]
-visible = false
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15

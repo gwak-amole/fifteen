@@ -15,12 +15,12 @@ signal hiding_shipping_tag
 # general game signals
 signal update_time
 signal update_run
+signal update_evidence(arg: String)
 signal rewind
 
 # general game stuff
 var current_run: int = 1;
 var time_remaining:=180.0
-var evidence_collected: int;
 var hold_time: float = 0;
 var evidence_found = 0;
 
@@ -35,6 +35,7 @@ var trash_unlock = false
 var last_name: String = ""
 var is_inside = false;
 var played_once = false;
+var screenshotted = false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -54,7 +55,6 @@ func _process(delta: float) -> void:
 	time_remaining -= delta
 	update_time.emit()
 	if time_remaining <= 0:
-		rewind.emit()
 		game_over();
 	
 	if Input.is_action_pressed("r"):
@@ -102,8 +102,13 @@ func reload_e_interaction():
 
 func rewind_game():
 	print("rewinding game")
+	rewind.emit()
 	current_run += 1
+	update_run.emit()
 	time_remaining = 180.0
+	evidence_found = 0;
+	update_evidence.emit("reset")
+	screenshotted = false
 	if current_run > 3:
 		game_over();
 

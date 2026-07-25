@@ -2,11 +2,18 @@
 
 [ext_resource type="Script" uid="uid://de6x2vmr4tdtg" path="res://scripts/countdown.gd" id="1_c8cft"]
 [ext_resource type="FontFile" uid="uid://dui6j34xrkei6" path="res://fonts/DotGothic16 copy/DotGothic16-Regular.ttf" id="2_c4awr"]
+[ext_resource type="Texture2D" uid="uid://cqbt341r0xtlr" path="res://assets/evidence_icons/evidence_icons_shippingtag.png" id="3_36pj8"]
+[ext_resource type="Texture2D" uid="uid://cu43mpq41lq18" path="res://assets/evidence_icons/evidence_icons_txt.png" id="4_i0lyc"]
+[ext_resource type="Texture2D" uid="uid://qjf4u8o7kcth" path="res://assets/evidence_icons/evidence_icons_receipt.png" id="5_mvgy2"]
 
-[node name="Countdown" type="CanvasLayer" unique_id=1641727423 node_paths=PackedStringArray("time_label", "run_label")]
+[node name="Countdown" type="CanvasLayer" unique_id=1641727423 node_paths=PackedStringArray("time_label", "run_label", "evidence_label", "tag_icon", "txt_icon", "receipt_icon")]
 script = ExtResource("1_c8cft")
 time_label = NodePath("VBoxContainer/Time Label")
 run_label = NodePath("VBoxContainer/Run Count Label")
+evidence_label = NodePath("HBoxContainer/Evidence Label")
+tag_icon = NodePath("HBoxContainer/tag")
+txt_icon = NodePath("HBoxContainer/txt")
+receipt_icon = NodePath("HBoxContainer/receipt")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1402173756]
 anchors_preset = -1
@@ -35,3 +42,34 @@ theme_override_fonts/font = ExtResource("2_c4awr")
 theme_override_font_sizes/font_size = 25
 text = "Run:"
 horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1920267694]
+offset_left = 577.0
+offset_top = 454.0
+offset_right = 939.0
+offset_bottom = 530.0
+alignment = 2
+
+[node name="Evidence Label" type="Label" parent="HBoxContainer" unique_id=1770187934]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_c4awr")
+theme_override_font_sizes/font_size = 24
+text = "Evidence:"
+
+[node name="tag" type="TextureRect" parent="HBoxContainer" unique_id=27062864]
+visible = false
+layout_mode = 2
+texture = ExtResource("3_36pj8")
+expand_mode = 2
+
+[node name="txt" type="TextureRect" parent="HBoxContainer" unique_id=1276001556]
+visible = false
+layout_mode = 2
+texture = ExtResource("4_i0lyc")
+expand_mode = 2
+
+[node name="receipt" type="TextureRect" parent="HBoxContainer" unique_id=1324063415]
+visible = false
+layout_mode = 2
+texture = ExtResource("5_mvgy2")
+expand_mode = 2

@@ -13,6 +13,7 @@ This is a shipping tag. Do you want to flip it over?
 	- Take the evidence
 		do DialogueHandler.hide_tag()
 		do DialogueHandler.evidence_found += 1
+		do DialogueHandler.update_evidence.emit("tag")
 	- Just leave it for now
 		do DialogueHandler.hide_tag()
 - No

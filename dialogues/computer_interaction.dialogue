@@ -17,3 +17,13 @@ else:
 ~ login_screen
 It's his computer, alright.
 => END
+
+~ screenshot
+if !DialogueHandler.screenshotted:
+	This isn't enough to incriminate him alone because texts are easily falsified...but I can still take a picture of it for evidence.
+	- Take a picture
+		do DialogueHandler.evidence_found += 1
+		do DialogueHandler.update_evidence.emit("txt")
+		do DialogueHandler.screenshotted = true
+	- I'll do it later
+=> END

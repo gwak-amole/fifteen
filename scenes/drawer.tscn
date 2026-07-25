@@ -24,9 +24,10 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[node name="drawer" type="CanvasLayer" unique_id=89181989 node_paths=PackedStringArray("close_up")]
+[node name="drawer" type="CanvasLayer" unique_id=89181989 node_paths=PackedStringArray("close_up", "shipping_tag")]
 script = ExtResource("1_rokag")
 close_up = NodePath("Control/close_up_tag")
+shipping_tag = NodePath("Control/shipping tag")
 
 [node name="Control" type="Control" parent="." unique_id=273379447]
 layout_mode = 3
