@@ -11,10 +11,12 @@ extends Node
 @export var safe_screen: CanvasLayer
 @export var player: CharacterBody2D
 @export var drawer: CanvasLayer
+@export var am: CharacterBody2D
 var lamp_on = true;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	am.hide()
 	safe_screen.hide()
 	desktop.hide();
 	comp_login_screen.hide();

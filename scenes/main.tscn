@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://cji88scy5ltt0" path="res://scenes/safe.tscn" id="25_og1vs"]
 [ext_resource type="PackedScene" uid="uid://b6pqvp44qwyht" path="res://scenes/countdown.tscn" id="26_2wyq8"]
 [ext_resource type="PackedScene" uid="uid://bhdhocwewej6r" path="res://scenes/drawer.tscn" id="26_vxglm"]
+[ext_resource type="PackedScene" uid="uid://dmsupgtefpqb2" path="res://scenes/alexmiller.tscn" id="28_2f3dj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0wfyh"]
 texture = ExtResource("1_o5qli")
@@ -130,6 +131,96 @@ corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
+
+[sub_resource type="Animation" id="Animation_2f3dj"]
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("caught/Control/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("caught/Control/Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_yq6so"]
+resource_name = "caught"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("alexmiller:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(207, 569), Vector2(207, 460)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("alexmiller")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"play_walk"
+}, {
+"args": [],
+"method": &"play_idle"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("caught/Control/ColorRect:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 0), Color(1, 0, 0, 0.4392157)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("caught/Control/Label:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fv21b"]
+_data = {
+&"RESET": SubResource("Animation_2f3dj"),
+&"caught": SubResource("Animation_yq6so")
+}
 
 [node name="main" type="Node2D" unique_id=1074030652]
 
@@ -282,7 +373,48 @@ visible = false
 
 [node name="Countdown" parent="." unique_id=1641727423 instance=ExtResource("26_2wyq8")]
 
+[node name="alexmiller" parent="." unique_id=1101125696 instance=ExtResource("28_2f3dj")]
+position = Vector2(207, 460)
+
 [node name="cutscene" type="AnimationPlayer" parent="." unique_id=375442307]
+libraries/ = SubResource("AnimationLibrary_fv21b")
+
+[node name="caught" type="CanvasLayer" parent="." unique_id=1480690401]
+
+[node name="Control" type="Control" parent="caught" unique_id=181738422]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="caught/Control" unique_id=714821031]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 0)
+
+[node name="Label" type="Label" parent="caught/Control" unique_id=44704559]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -66.0
+offset_right = 225.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("20_gqmmt")
+theme_override_font_sizes/font_size = 60
+text = "mission failure"
 
 [connection signal="pressed" from="Lamp Inspection/Control/sticky_note" to="Inspection Handler" method="_on_sticky_note_pressed"]
 [connection signal="pressed" from="Lamp Inspection/Control/lamp_string" to="Inspection Handler" method="_on_lamp_string_pressed"]
