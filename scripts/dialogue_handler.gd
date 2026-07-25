@@ -1,5 +1,7 @@
 extends Node
 
+@export var timer: Timer
+
 signal checking_lamp
 signal trying_password
 signal exiting_safe_view
@@ -12,6 +14,9 @@ signal opening_drawer
 signal showing_shipping_tag
 signal hiding_shipping_tag
 signal AM_walk_in
+signal tick
+signal rewind_timer_anim
+signal rewind_release
 
 # general game signals
 signal update_time
@@ -37,6 +42,7 @@ var last_name: String = ""
 var is_inside = false;
 var played_once = false;
 var screenshotted = false;
+var rewind_emitted = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -61,14 +67,20 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_pressed("r"):
 		hold_time += delta;
+		if timer.is_stopped():
+			timer.start()
 		if hold_time >= 3.0:
-			print("rewinding")
-			rewind.emit();
-			rewind_game()
-			hold_time = 0;
+			if !rewind_emitted:
+				print("emitted")
+				rewind_timer_anim.emit()
+				rewind_emitted = true
+			timer.PROCESS_MODE_DISABLED
 			
 	if Input.is_action_just_released("r"):
 		hold_time = 0;
+		rewind_release.emit()
+		timer.PROCESS_MODE_PAUSABLE
+		timer.stop()
 		
 	if evidence_found == 3:
 		end_game()
@@ -106,6 +118,7 @@ func reload_e_interaction():
 	played_once = false;
 
 func rewind_game():
+	rewind_emitted = false
 	print("rewinding game")
 	rewind.emit()
 	current_run += 1
@@ -140,3 +153,7 @@ func reset():
 	update_evidence.emit("reset")
 	update_run.emit()
 	update_time.emit()
+
+
+func _on_timer_timeout() -> void:
+	tick.emit()

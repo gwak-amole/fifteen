@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://b6pqvp44qwyht" path="res://scenes/countdown.tscn" id="26_2wyq8"]
 [ext_resource type="PackedScene" uid="uid://bhdhocwewej6r" path="res://scenes/drawer.tscn" id="26_vxglm"]
 [ext_resource type="PackedScene" uid="uid://dmsupgtefpqb2" path="res://scenes/alexmiller.tscn" id="28_2f3dj"]
+[ext_resource type="PackedScene" uid="uid://bw3y8dil5tk4l" path="res://scenes/timer_animation.tscn" id="29_yq6so"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0wfyh"]
 texture = ExtResource("1_o5qli")
@@ -293,7 +294,7 @@ position = Vector2(338, 196)
 position = Vector2(145, 251)
 collision_layer = 3
 
-[node name="Inspection Handler" type="Node" parent="." unique_id=970271205 node_paths=PackedStringArray("lamp_canvas", "done_button", "sticky", "anim", "lamp_texture", "lamp_sprite", "comp_login_screen", "desktop", "safe_screen", "player", "drawer", "am", "cutscene", "caught_screen")]
+[node name="Inspection Handler" type="Node" parent="." unique_id=970271205 node_paths=PackedStringArray("lamp_canvas", "done_button", "sticky", "anim", "lamp_texture", "lamp_sprite", "comp_login_screen", "desktop", "safe_screen", "player", "drawer", "am", "cutscene", "caught_screen", "timer_animation")]
 script = ExtResource("13_a8y0u")
 lamp_canvas = NodePath("../Lamp Inspection")
 done_button = NodePath("../Lamp Inspection/Control/done")
@@ -309,6 +310,7 @@ drawer = NodePath("../drawer")
 am = NodePath("../alexmiller")
 cutscene = NodePath("../cutscene")
 caught_screen = NodePath("../caught")
+timer_animation = NodePath("../timer_animation")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Inspection Handler" unique_id=830995085]
 libraries/ = SubResource("AnimationLibrary_og1vs")
@@ -447,6 +449,8 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("20_gqmmt")
 theme_override_font_sizes/font_size = 60
 text = "mission failure"
+
+[node name="timer_animation" parent="." unique_id=961767772 instance=ExtResource("29_yq6so")]
 
 [connection signal="pressed" from="Lamp Inspection/Control/sticky_note" to="Inspection Handler" method="_on_sticky_note_pressed"]
 [connection signal="pressed" from="Lamp Inspection/Control/lamp_string" to="Inspection Handler" method="_on_lamp_string_pressed"]

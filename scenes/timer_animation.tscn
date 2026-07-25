@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bw3y8dil5tk4l"]
+
+[ext_resource type="SpriteFrames" uid="uid://k8r7xmgpy70d" path="res://scenes/sprite_frames/timer_animation_frames.tres" id="1_t15i8"]
+[ext_resource type="Script" uid="uid://848k7v23vwbl" path="res://scripts/timer_animation.gd" id="1_v6ij6"]
+
+[node name="timer_animation" type="CanvasLayer" unique_id=961767772]
+script = ExtResource("1_v6ij6")
+
+[node name="Control" type="Control" parent="." unique_id=1176847658]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control" unique_id=1084303166]
+position = Vector2(473, 233)
+sprite_frames = ExtResource("1_t15i8")
+animation = &"rewind"
+frame = 15
+frame_progress = 1.0
