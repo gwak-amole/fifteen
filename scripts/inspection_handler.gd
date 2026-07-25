@@ -12,10 +12,13 @@ extends Node
 @export var player: CharacterBody2D
 @export var drawer: CanvasLayer
 @export var am: CharacterBody2D
+@export var cutscene: AnimationPlayer
+@export var caught_screen: CanvasLayer
 var lamp_on = true;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	caught_screen.hide();
 	am.hide()
 	safe_screen.hide()
 	desktop.hide();
@@ -30,6 +33,7 @@ func _ready() -> void:
 	DialogueHandler.connect("showing_safe_view", show_safe_view)
 	DialogueHandler.connect("opening_drawer", open_drawer)
 	DialogueHandler.connect("rewind", rewinding)
+	DialogueHandler.connect("AM_walk_in", play_walk_in)
 	comp_login_screen.connect("exit_computer_login", exit_computer_login)
 
 
@@ -91,3 +95,11 @@ func open_drawer():
 func rewinding():
 	if get_tree():
 		get_tree().reload_current_scene()
+
+func play_walk_in():
+	am.show()
+	player.set_physics_process(false)
+	cutscene.play("caught")
+	caught_screen.show()
+	await cutscene.animation_finished
+	DialogueHandler.game_over();

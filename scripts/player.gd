@@ -89,3 +89,6 @@ func show_e():
 func hide_e():
 	interact.hide()
 	DialogueHandler.played_once = false;
+
+func play_idle():
+	anim.play("idle")

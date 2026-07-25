@@ -11,6 +11,7 @@ signal player_hide_e
 signal opening_drawer
 signal showing_shipping_tag
 signal hiding_shipping_tag
+signal AM_walk_in
 
 # general game signals
 signal update_time
@@ -20,7 +21,7 @@ signal rewind
 
 # general game stuff
 var current_run: int = 1;
-var time_remaining:= 240.0
+var time_remaining:= 10.0
 var hold_time: float = 0;
 var evidence_found = 0;
 
@@ -52,10 +53,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	time_remaining -= delta
+	if time_remaining > 0:
+		time_remaining -= delta
 	update_time.emit()
 	if time_remaining <= 0:
-		game_over();
+		AM_walk_in.emit();
 	
 	if Input.is_action_pressed("r"):
 		hold_time += delta;
