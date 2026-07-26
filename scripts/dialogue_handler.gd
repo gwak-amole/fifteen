@@ -80,7 +80,6 @@ func _process(delta: float) -> void:
 			timer.start()
 		if hold_time >= 3.0:
 			if !rewind_emitted:
-				print("emitted")
 				rewind_timer_anim.emit()
 				rewind_emitted = true
 			timer.PROCESS_MODE_DISABLED
@@ -132,7 +131,6 @@ func reload_e_interaction():
 
 func rewind_game():
 	rewind_emitted = false
-	print("rewinding game")
 	rewind.emit()
 	current_run += 1
 	update_run.emit()

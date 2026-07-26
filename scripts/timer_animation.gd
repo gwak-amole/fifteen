@@ -16,7 +16,6 @@ func play_tick():
 		$Control/AnimatedSprite2D.play("tick")
 	
 func play_rewind():
-	print("playing rewind")
 	$Control/AnimatedSprite2D.play("rewind")
 	await $Control/AnimatedSprite2D.animation_finished
 	DialogueHandler.rewind.emit()

@@ -25,10 +25,8 @@ func _process(delta: float) -> void:
 func _on_login_button_pressed() -> void:
 	mouseclick.play()
 	if line_edit.text == "UNICORNZ1":
-		print("yay pass")
 		inspection_handler.desktop_start();
 	else:
-		print("access denied")
 		tried = true;
 		line_edit.placeholder_text = "Try again"
 		line_edit.text = "";

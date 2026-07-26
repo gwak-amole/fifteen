@@ -19,23 +19,23 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	pushing = false;
-	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var direction := Input.get_vector("left", "right", "up", "down")
 	velocity = direction * SPEED
 	
-	if Input.is_action_just_pressed("ui_left"):
+	if Input.is_action_just_pressed("left"):
 		anim.play("walkside")
 		just_side = true
 		just_up = false
 		anim.flip_h = true
-	elif Input.is_action_just_pressed("ui_down"):
+	elif Input.is_action_just_pressed("down"):
 		anim.play("walkdown")
 		just_up = false
 		just_side = false
-	elif Input.is_action_just_pressed("ui_up"):
+	elif Input.is_action_just_pressed("up"):
 		anim.play("walkup")
 		just_up = true
 		just_side = false
-	elif Input.is_action_just_pressed("ui_right"):
+	elif Input.is_action_just_pressed("right"):
 		anim.play("walkside")
 		just_side = true
 		just_up = false

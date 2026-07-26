@@ -31,7 +31,6 @@ func _on_code_go_pressed() -> void:
 	beep.play()
 	if line_edit.text == "9872":
 		opening_audio.play()
-		print("yay")
 		unlocked_safe.show()
 		locked_safe.hide()
 	else:
