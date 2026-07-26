@@ -5,6 +5,9 @@
 [ext_resource type="FontFile" uid="uid://cjjbeekpewklt" path="res://fonts/Black_Ops_One/BlackOpsOne-Regular.ttf" id="2_o7i0r"]
 [ext_resource type="FontFile" uid="uid://dui6j34xrkei6" path="res://fonts/DotGothic16 copy/DotGothic16-Regular.ttf" id="3_he1sj"]
 [ext_resource type="Texture2D" uid="uid://lqc7auhufyyg" path="res://assets/screens/start_screen_blink.png" id="4_r2jwc"]
+[ext_resource type="AudioStream" uid="uid://csec7polk7jvo" path="res://audio/676989__zhr__lonely-music-loop.wav" id="6_5pab1"]
+[ext_resource type="AudioStream" uid="uid://oh7kh13ip85e" path="res://audio/342200__christopherderp__videogame-menu-button-click.wav" id="7_o30b1"]
+[ext_resource type="Texture2D" uid="uid://3f8lp086t0po" path="res://assets/computer/desktop/xbutton.png" id="8_ka6nf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r2jwc"]
 
@@ -86,7 +89,14 @@ _data = {
 &"start_screen_movement": SubResource("Animation_he1sj")
 }
 
-[node name="start_screen" type="Control" unique_id=700715638 node_paths=PackedStringArray("anim")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o30b1"]
+bg_color = Color(0.18000486, 0.1800049, 0.18000478, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="start_screen" type="Control" unique_id=700715638 node_paths=PackedStringArray("anim", "click", "credits")]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
@@ -96,6 +106,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_o30b1")
 anim = NodePath("AnimationPlayer")
+click = NodePath("click")
+credits = NodePath("Panel")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2042514249]
 layout_mode = 0
@@ -147,9 +159,67 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_ka6nf")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_ws7p0")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_ecdxc")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_qls88")
-text = "how to play"
+text = "credits"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=510620620]
 libraries/ = SubResource("AnimationLibrary_r2jwc")
 
+[node name="bg" type="AudioStreamPlayer" parent="." unique_id=1033953694]
+stream = ExtResource("6_5pab1")
+autoplay = true
+
+[node name="click" type="AudioStreamPlayer" parent="." unique_id=2095162238]
+stream = ExtResource("7_o30b1")
+
+[node name="Panel" type="Panel" parent="." unique_id=1001037767]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = -131.5
+offset_right = 168.0
+offset_bottom = 131.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o30b1")
+
+[node name="Label" type="Label" parent="Panel" unique_id=925617567]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -157.5
+offset_top = -103.83333
+offset_right = 157.5
+offset_bottom = 103.83333
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_he1sj")
+text = "Game Dev: 
+gwakamole
+Music Credits: Taken from freesound.org
+Freesound Creators:
+Nora Meld
+Mellau
+Sjacura
+Thanks for playing! I hope it's hard enough!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="TextureButton" type="TextureButton" parent="Panel" unique_id=598894963]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 7.5
+offset_right = 322.0
+offset_bottom = 29.5
+texture_normal = ExtResource("8_ka6nf")
+
 [connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/howto" to="." method="_on_howto_pressed"]
+[connection signal="pressed" from="Panel/TextureButton" to="." method="_on_texture_button_pressed"]

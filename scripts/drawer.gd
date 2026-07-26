@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @export var close_up: TextureRect
 @export var shipping_tag: TextureButton
+@export var click: AudioStreamPlayer
 var resource = load("res://dialogues/drawer_interaction.dialogue")
 
 
@@ -20,18 +21,22 @@ func _process(delta: float) -> void:
 
 
 func _on_suntzu_pressed() -> void:
+	click.play()
 	DialogueManager.show_dialogue_balloon(resource, "suntzu")
 
 
 func _on_blush_pressed() -> void:
+	click.play()
 	DialogueManager.show_dialogue_balloon(resource, "blush")
 
 
 func _on_shipping_tag_pressed() -> void:
+	click.play()
 	DialogueManager.show_dialogue_balloon(resource, "shipping_tag")
 
 
 func _on_done_pressed() -> void:
+	click.play()
 	hide();
 
 func show_tag():

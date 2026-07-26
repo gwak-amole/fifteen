@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://sls065aobdo2" path="res://scenes/vacation_window.tscn" id="11_nikxi"]
 [ext_resource type="PackedScene" uid="uid://d4mdihdka6683" path="res://scenes/trash.tscn" id="11_q2hki"]
 [ext_resource type="PackedScene" uid="uid://jxlojh1vmrj3" path="res://scenes/trash_code.tscn" id="12_q2hki"]
+[ext_resource type="AudioStream" uid="uid://bvhwn05j36u00" path="res://audio/dragon-studio-simple-whoosh-382724.mp3" id="13_nd1jb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pkmwo"]
 bg_color = Color(1, 1, 1, 0.54901963)
@@ -23,7 +24,7 @@ corner_radius_bottom_left = 4
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nikxi"]
 bg_color = Color(1, 0.28859672, 0.5478798, 1)
 
-[node name="desktop" type="CanvasLayer" unique_id=1886967312 node_paths=PackedStringArray("taxes_window", "fam_window", "vacation_window", "documents_window", "trash_window", "trash_code_window")]
+[node name="desktop" type="CanvasLayer" unique_id=1886967312 node_paths=PackedStringArray("taxes_window", "fam_window", "vacation_window", "documents_window", "trash_window", "trash_code_window", "trash_sound")]
 script = ExtResource("1_pkmwo")
 taxes_window = NodePath("taxes_window")
 fam_window = NodePath("family_window")
@@ -31,6 +32,7 @@ vacation_window = NodePath("vacation_window")
 documents_window = NodePath("documents_window")
 trash_window = NodePath("trash")
 trash_code_window = NodePath("trash_code")
+trash_sound = NodePath("AudioStreamPlayer")
 
 [node name="Control" type="Control" parent="." unique_id=1970446500]
 texture_filter = 1
@@ -179,6 +181,9 @@ theme_override_font_sizes/font_size = 15
 theme_override_styles/normal = SubResource("StyleBoxFlat_nikxi")
 text = "power off"
 metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=203842048]
+stream = ExtResource("13_nd1jb")
 
 [connection signal="pressed" from="Control/left_apps/documents" to="." method="_on_documents_pressed"]
 [connection signal="pressed" from="Control/left_apps/taxes" to="." method="_on_taxes_pressed"]

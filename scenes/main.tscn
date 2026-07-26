@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://conlfno2xd1og" path="res://assets/lamp inspection/sticky_note.png" id="19_0ld40"]
 [ext_resource type="FontFile" uid="uid://dui6j34xrkei6" path="res://fonts/DotGothic16 copy/DotGothic16-Regular.ttf" id="20_gqmmt"]
 [ext_resource type="StyleBox" uid="uid://cshlc3v64nf8e" path="res://scenes/ui/done_button_hover.tres" id="21_yc10j"]
+[ext_resource type="AudioStream" uid="uid://buac8uf653f8m" path="res://audio/freesound_community-flip-page-105778.mp3" id="23_5q0nq"]
 [ext_resource type="PackedScene" uid="uid://cq3cg66tqh6w6" path="res://scenes/computer_login.tscn" id="23_pm3ni"]
 [ext_resource type="PackedScene" uid="uid://c85wxvoo7uetv" path="res://scenes/desktop.tscn" id="24_y6deb"]
 [ext_resource type="PackedScene" uid="uid://cji88scy5ltt0" path="res://scenes/safe.tscn" id="25_og1vs"]
@@ -29,6 +30,9 @@
 [ext_resource type="PackedScene" uid="uid://bhdhocwewej6r" path="res://scenes/drawer.tscn" id="26_vxglm"]
 [ext_resource type="PackedScene" uid="uid://dmsupgtefpqb2" path="res://scenes/alexmiller.tscn" id="28_2f3dj"]
 [ext_resource type="PackedScene" uid="uid://bw3y8dil5tk4l" path="res://scenes/timer_animation.tscn" id="29_yq6so"]
+[ext_resource type="AudioStream" uid="uid://b1i3hkpeyv0fu" path="res://audio/583613__evretro__8-bit-brisk-music-loop.wav" id="30_fv21b"]
+[ext_resource type="AudioStream" uid="uid://c1xremkl0e323" path="res://audio/draweropen.wav" id="31_tel4y"]
+[ext_resource type="AudioStream" uid="uid://oh7kh13ip85e" path="res://audio/342200__christopherderp__videogame-menu-button-click.wav" id="32_qkpxi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0wfyh"]
 texture = ExtResource("1_o5qli")
@@ -294,7 +298,7 @@ position = Vector2(338, 196)
 position = Vector2(145, 251)
 collision_layer = 3
 
-[node name="Inspection Handler" type="Node" parent="." unique_id=970271205 node_paths=PackedStringArray("lamp_canvas", "done_button", "sticky", "anim", "lamp_texture", "lamp_sprite", "comp_login_screen", "desktop", "safe_screen", "player", "drawer", "am", "cutscene", "caught_screen", "timer_animation")]
+[node name="Inspection Handler" type="Node" parent="." unique_id=970271205 node_paths=PackedStringArray("lamp_canvas", "done_button", "sticky", "anim", "lamp_texture", "lamp_sprite", "comp_login_screen", "desktop", "safe_screen", "player", "drawer", "am", "cutscene", "caught_screen", "timer_animation", "drawer_audio", "click", "flip")]
 script = ExtResource("13_a8y0u")
 lamp_canvas = NodePath("../Lamp Inspection")
 done_button = NodePath("../Lamp Inspection/Control/done")
@@ -311,6 +315,9 @@ am = NodePath("../alexmiller")
 cutscene = NodePath("../cutscene")
 caught_screen = NodePath("../caught")
 timer_animation = NodePath("../timer_animation")
+drawer_audio = NodePath("../Node/drawer")
+click = NodePath("../Node/click")
+flip = NodePath("../Lamp Inspection/Control/flip")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Inspection Handler" unique_id=830995085]
 libraries/ = SubResource("AnimationLibrary_og1vs")
@@ -389,6 +396,9 @@ theme_override_styles/hover = ExtResource("21_yc10j")
 theme_override_styles/focus = ExtResource("21_yc10j")
 text = "done"
 
+[node name="flip" type="AudioStreamPlayer" parent="Lamp Inspection/Control" unique_id=1196557203]
+stream = ExtResource("23_5q0nq")
+
 [node name="Computer Login" parent="." unique_id=1233718878 node_paths=PackedStringArray("inspection_handler") instance=ExtResource("23_pm3ni")]
 visible = false
 inspection_handler = NodePath("../Inspection Handler")
@@ -451,6 +461,19 @@ theme_override_font_sizes/font_size = 60
 text = "mission failure"
 
 [node name="timer_animation" parent="." unique_id=961767772 instance=ExtResource("29_yq6so")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1201515322]
+stream = ExtResource("30_fv21b")
+volume_db = -4.0
+autoplay = true
+
+[node name="Node" type="Node" parent="." unique_id=890482683]
+
+[node name="drawer" type="AudioStreamPlayer" parent="Node" unique_id=16009797]
+stream = ExtResource("31_tel4y")
+
+[node name="click" type="AudioStreamPlayer" parent="Node" unique_id=1582956847]
+stream = ExtResource("32_qkpxi")
 
 [connection signal="pressed" from="Lamp Inspection/Control/sticky_note" to="Inspection Handler" method="_on_sticky_note_pressed"]
 [connection signal="pressed" from="Lamp Inspection/Control/lamp_string" to="Inspection Handler" method="_on_lamp_string_pressed"]

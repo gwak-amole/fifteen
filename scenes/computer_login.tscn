@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://b6utgxxqu464n" path="res://scripts/computer_login_line_edit.gd" id="4_2ukdi"]
 [ext_resource type="Texture2D" uid="uid://cx18jk5ajk6ra" path="res://assets/computer/computer_login/login_button_hover.png" id="4_i3u04"]
 [ext_resource type="StyleBox" uid="uid://cshlc3v64nf8e" path="res://scenes/ui/done_button_hover.tres" id="7_jq27d"]
+[ext_resource type="AudioStream" uid="uid://d30q8t45li5nt" path="res://audio/mouseclick.wav" id="8_v6wpi"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xr4h8"]
 
@@ -26,9 +27,10 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[node name="Computer Login" type="CanvasLayer" unique_id=1233718878 node_paths=PackedStringArray("line_edit")]
+[node name="Computer Login" type="CanvasLayer" unique_id=1233718878 node_paths=PackedStringArray("line_edit", "mouseclick")]
 script = ExtResource("1_wvl3w")
 line_edit = NodePath("Control/LineEdit")
+mouseclick = NodePath("mouseclick")
 
 [node name="Control" type="Control" parent="." unique_id=2112453627]
 texture_filter = 1
@@ -93,6 +95,9 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_v6wpi")
 theme_override_styles/hover = ExtResource("7_jq27d")
 theme_override_styles/focus = ExtResource("7_jq27d")
 text = "I'm done using the computer"
+
+[node name="mouseclick" type="AudioStreamPlayer" parent="." unique_id=1321392269]
+stream = ExtResource("8_v6wpi")
 
 [connection signal="pressed" from="Control/login button" to="." method="_on_login_button_pressed"]
 [connection signal="pressed" from="Control/done" to="." method="_on_done_pressed"]

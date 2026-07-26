@@ -6,6 +6,8 @@ extends CanvasLayer
 @export var locked_safe: Control
 @export var shipment_button: TextureButton
 @export var shipment_paper: TextureRect
+@export var opening_audio: AudioStreamPlayer
+@export var beep: AudioStreamPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,7 +28,9 @@ func _on_button_pressed() -> void:
 
 
 func _on_code_go_pressed() -> void:
+	beep.play()
 	if line_edit.text == "9872":
+		opening_audio.play()
 		print("yay")
 		unlocked_safe.show()
 		locked_safe.hide()

@@ -1,0 +1,25 @@
+~ start
+do DialogueHandler.one()
+You're Agent Fifteen, a secret spy working for the United Nations. (press e to continue)
+do DialogueHandler.two()
+You have a mission...find three pieces of incriminating evidence against Alex Miller, a notorious international illegal arms dealer.
+do DialogueHandler.three()
+Your team located his apartment and all you have to do is look for good evidence. [wait=0.5] BUT...you realize that he comes home in 4 minutes.
+do DialogueHandler.four()
+The United Nations gifted you the power to rewind time. So before Miller catches you, if needed, make sure to rewind.
+do DialogueHandler.five()
+You only have 2 rewinds.
+do DialogueHandler.six()
+Each time you rewind, Miller comes home faster and is catching onto the fact that you're rewinding time.
+do DialogueHandler.seven()
+Use e to interact with items in his apartment.
+do DialogueHandler.eight()
+Hold r to rewind time.
+do DialogueHandler.nine()
+AND MAKE SURE YOU LOOK AT EVERYTHING [wave]CLOSELY[/wave]. ANYTHING YOU FIND...it'll help.
+do DialogueHandler.ten()
+Best of luck, Fifteen.
+=> END
+
+~ end_this
+=> END!

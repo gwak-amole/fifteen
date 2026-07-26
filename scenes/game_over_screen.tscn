@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://b0rlf70qpm7rp" path="res://assets/screens/game_over_screen.png" id="1_iwahs"]
 [ext_resource type="Script" uid="uid://c3jsxv3tgkxeu" path="res://scripts/game_over_screen.gd" id="1_jw6e5"]
 [ext_resource type="FontFile" uid="uid://dui6j34xrkei6" path="res://fonts/DotGothic16 copy/DotGothic16-Regular.ttf" id="2_61w2s"]
+[ext_resource type="AudioStream" uid="uid://oh7kh13ip85e" path="res://audio/342200__christopherderp__videogame-menu-button-click.wav" id="4_wa2qn"]
+[ext_resource type="AudioStream" uid="uid://bv8s37tfge8nc" path="res://audio/273662__norameld__sad-song-loop.wav" id="5_cyfkl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_61w2s"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -34,7 +36,7 @@ corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xx0b3"]
 
-[node name="game_over_screen" type="Control" unique_id=1277407564]
+[node name="game_over_screen" type="Control" unique_id=1277407564 node_paths=PackedStringArray("click", "bg", "text")]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
@@ -43,6 +45,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jw6e5")
+click = NodePath("click")
+bg = NodePath("TextureRect")
+text = NodePath("Label")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1551950201]
 layout_mode = 0
@@ -89,5 +94,12 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_jw6e5")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_cyfkl")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_xx0b3")
 text = "rewind time..."
+
+[node name="click" type="AudioStreamPlayer" parent="." unique_id=269365488]
+stream = ExtResource("4_wa2qn")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2025917758]
+stream = ExtResource("5_cyfkl")
+autoplay = true
 
 [connection signal="pressed" from="goback" to="." method="_on_goback_pressed"]

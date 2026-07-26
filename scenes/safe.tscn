@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://dgg14c6c3mtac" path="res://assets/safe_inspection/shipments_select.png" id="10_shl4b"]
 [ext_resource type="StyleBox" uid="uid://cshlc3v64nf8e" path="res://scenes/ui/done_button_hover.tres" id="11_rtxfg"]
 [ext_resource type="Texture2D" uid="uid://dyrrmhdg7b13r" path="res://assets/safe_inspection/shipment_paper.png" id="12_g01j7"]
+[ext_resource type="AudioStream" uid="uid://8tfoj8c2i5lv" path="res://audio/dragon-studio-opening-door-450444.mp3" id="13_41tkx"]
+[ext_resource type="AudioStream" uid="uid://borq7jbqbo7jy" path="res://audio/BEEP.wav" id="14_8r6pu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_homnf"]
 bg_color = Color(0.23392546, 0.23392549, 0.23392531, 1)
@@ -83,7 +85,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="safe" type="CanvasLayer" unique_id=139497989 node_paths=PackedStringArray("input_code", "line_edit", "unlocked_safe", "locked_safe", "shipment_button", "shipment_paper")]
+[node name="safe" type="CanvasLayer" unique_id=139497989 node_paths=PackedStringArray("input_code", "line_edit", "unlocked_safe", "locked_safe", "shipment_button", "shipment_paper", "opening_audio", "beep")]
 script = ExtResource("1_ewslm")
 input_code = NodePath("locked/input_code")
 line_edit = NodePath("locked/input_code/LineEdit")
@@ -91,6 +93,8 @@ unlocked_safe = NodePath("unlocked")
 locked_safe = NodePath("locked")
 shipment_button = NodePath("unlocked/shipment")
 shipment_paper = NodePath("unlocked/shipment_paper")
+opening_audio = NodePath("open")
+beep = NodePath("beep")
 
 [node name="locked" type="Control" parent="." unique_id=1923838041]
 visible = false
@@ -324,6 +328,12 @@ Contents:
 • 20 Crates of Ammunition
 Payment Received: $450,000
 Approved: Alex M."
+
+[node name="open" type="AudioStreamPlayer" parent="." unique_id=354833078]
+stream = ExtResource("13_41tkx")
+
+[node name="beep" type="AudioStreamPlayer" parent="." unique_id=370765671]
+stream = ExtResource("14_8r6pu")
 
 [connection signal="pressed" from="locked/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="locked/done" to="." method="_on_done_pressed"]

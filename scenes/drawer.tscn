@@ -11,6 +11,7 @@
 [ext_resource type="FontFile" uid="uid://dui6j34xrkei6" path="res://fonts/DotGothic16 copy/DotGothic16-Regular.ttf" id="9_8wanr"]
 [ext_resource type="StyleBox" uid="uid://cshlc3v64nf8e" path="res://scenes/ui/done_button_hover.tres" id="10_x262c"]
 [ext_resource type="Texture2D" uid="uid://dp7qb7vemq2pv" path="res://assets/drawer/shipping_tag_close.png" id="11_x262c"]
+[ext_resource type="AudioStream" uid="uid://cf61k313ajq7c" path="res://audio/506054__mellau__button-click-1.wav" id="12_jlc4d"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jlc4d"]
 bg_color = Color(0.6795125, 0.33008245, 1.92523e-07, 1)
@@ -24,10 +25,11 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[node name="drawer" type="CanvasLayer" unique_id=89181989 node_paths=PackedStringArray("close_up", "shipping_tag")]
+[node name="drawer" type="CanvasLayer" unique_id=89181989 node_paths=PackedStringArray("close_up", "shipping_tag", "click")]
 script = ExtResource("1_rokag")
 close_up = NodePath("Control/close_up_tag")
 shipping_tag = NodePath("Control/shipping tag")
+click = NodePath("click")
 
 [node name="Control" type="Control" parent="." unique_id=273379447]
 layout_mode = 3
@@ -99,6 +101,9 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("11_x262c")
 metadata/_edit_use_anchors_ = true
+
+[node name="click" type="AudioStreamPlayer" parent="." unique_id=1460547338]
+stream = ExtResource("12_jlc4d")
 
 [connection signal="pressed" from="Control/blush" to="." method="_on_blush_pressed"]
 [connection signal="pressed" from="Control/suntzu" to="." method="_on_suntzu_pressed"]

@@ -1,6 +1,10 @@
 extends Node
 
 @export var timer: Timer
+@export var audio: AudioStreamPlayer
+@export var camera: AudioStreamPlayer
+@export var image: Control
+@export var anim: AnimationPlayer
 
 signal checking_lamp
 signal trying_password
@@ -26,7 +30,7 @@ signal rewind
 
 # general game stuff
 var current_run: int = 1;
-var time_remaining:= 10.0
+var time_remaining:= 240.0
 var hold_time: float = 0;
 var evidence_found = 0;
 
@@ -43,9 +47,13 @@ var is_inside = false;
 var played_once = false;
 var screenshotted = false;
 var rewind_emitted = false
+var end_emitted = false;
+
+var win = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	image.hide()
 	played_once = false;
 	is_inside = false
 	trash_unlock = false
@@ -63,6 +71,7 @@ func _process(delta: float) -> void:
 		time_remaining -= delta
 	update_time.emit()
 	if time_remaining <= 0:
+		win = false
 		AM_walk_in.emit();
 	
 	if Input.is_action_pressed("r"):
@@ -83,7 +92,10 @@ func _process(delta: float) -> void:
 		timer.stop()
 		
 	if evidence_found == 3:
-		end_game()
+		if !end_emitted:
+			win = true;
+			end_game()
+			end_emitted = true;
 
 func check_lamp():
 	checking_lamp.emit()
@@ -103,7 +115,8 @@ func trash_unlocked():
 	unlocking_trash.emit()
 	
 func end_game():
-	print("game over")
+	if get_tree():
+		get_tree().change_scene_to_file("res://scenes/game_over_screen.tscn")
 	
 func can_interact():
 	is_inside = true;
@@ -134,6 +147,7 @@ func rewind_game():
 		game_over();
 
 func game_over():
+	win = false
 	get_tree().change_scene_to_file("res://scenes/game_over_screen.tscn")
 	
 func open_drawer():
@@ -146,14 +160,65 @@ func hide_tag():
 	hiding_shipping_tag.emit()
 
 func reset():
+	image.hide()
 	current_run = 1;
-	time_remaining = 10.0
+	time_remaining = 240.0
 	hold_time = 0;
 	evidence_found = 0;
 	update_evidence.emit("reset")
 	update_run.emit()
 	update_time.emit()
+	end_emitted = false
+	rewind_emitted = false
+	first_time_on_computer = true
+	first_time_seeing_computer = true;
+	saw_lamp_password = false
+	knows_safe_code = false
+	first_time_seeing_safe = true;
+	took_files = false;
+	seen_desktop = false
+	trash_unlock = false
+	last_name= ""
+	is_inside = false;
+	played_once = false;
+	screenshotted = false;
+	rewind_emitted = false
+	end_emitted = false;
 
 
 func _on_timer_timeout() -> void:
 	tick.emit()
+
+func click():
+	audio.play()
+
+func one():
+	image.show()
+	anim.play("one")
+
+func two():
+	anim.play("two")
+
+func three():
+	anim.play("three")
+
+func four():
+	anim.play("four")
+
+func five():
+	anim.play("five")
+
+func six():
+	anim.play("six")
+
+func seven():
+	anim.play("seven")
+
+func eight():
+	anim.play("eight")
+
+func nine():
+	anim.play("nine")
+
+func ten():
+	anim.play("ten")

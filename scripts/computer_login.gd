@@ -4,6 +4,7 @@ signal exit_computer_login
 
 @export var inspection_handler: Node
 @export var line_edit = LineEdit
+@export var mouseclick: AudioStreamPlayer
 var tried = false;
 
 # Called when the node enters the scene tree for the first time.
@@ -22,6 +23,7 @@ func _process(delta: float) -> void:
 
 
 func _on_login_button_pressed() -> void:
+	mouseclick.play()
 	if line_edit.text == "UNICORNZ1":
 		print("yay pass")
 		inspection_handler.desktop_start();

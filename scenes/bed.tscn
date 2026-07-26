@@ -7,7 +7,7 @@
 size = Vector2(249, 130)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_raxto"]
-size = Vector2(255, 135)
+size = Vector2(217, 135)
 
 [node name="bed" type="StaticBody2D" unique_id=955391343 node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_fqty4")
@@ -24,7 +24,7 @@ shape = SubResource("RectangleShape2D_fqty4")
 [node name="interaction" type="Area2D" parent="." unique_id=280600206]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interaction" unique_id=2066484333]
-position = Vector2(-4.5, 0.5)
+position = Vector2(-23.5, 0.5)
 shape = SubResource("RectangleShape2D_raxto")
 
 [connection signal="body_entered" from="interaction" to="." method="_on_interaction_body_entered"]

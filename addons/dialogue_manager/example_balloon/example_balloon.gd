@@ -23,6 +23,9 @@ class_name DialogueManagerExampleBalloon extends CanvasLayer
 ## A sound player for voice lines (if they exist).
 @onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
 
+@export var blip: AudioStreamPlayer
+@export var tap: AudioStreamPlayer
+
 ## Temporary game states
 var temporary_game_states: Array = []
 
@@ -74,7 +77,11 @@ var mutation_cooldown: Timer = Timer.new()
 func _ready() -> void:
 	balloon.hide()
 	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
-
+	
+	dialogue_label.spoke.connect(_on_dialogue_label_spoke)
+	
+	responses_menu.child_entered_tree.connect(on_response_button_added)
+	
 	# If the responses menu doesn't have a next action set, use this one
 	if responses_menu.next_action.is_empty():
 		responses_menu.next_action = next_action
@@ -211,7 +218,22 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 
 
 func _on_responses_menu_response_selected(response: DialogueResponse) -> void:
+	play_tap_sound()
 	next(response.next_id)
 
+func _on_dialogue_label_spoke(letter: String, index: int, speed: float):
+	if index % 2 != 0:
+		return
+	blip.pitch_scale = randf_range(0.95, 1.05)
+	blip.play()
+
+func on_response_button_added(node: Node):
+	if not node.is_node_ready():
+		await node.ready;
+	if node is Button:
+		node.pressed.connect(play_tap_sound)
+
+func play_tap_sound():
+	tap.play()
 
 #endregion

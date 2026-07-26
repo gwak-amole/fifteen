@@ -15,6 +15,11 @@ extends Node
 @export var cutscene: AnimationPlayer
 @export var caught_screen: CanvasLayer
 @export var timer_animation: CanvasLayer
+
+#audios
+@export var drawer_audio: AudioStreamPlayer
+@export var click: AudioStreamPlayer
+@export var flip: AudioStreamPlayer
 var lamp_on = true;
 
 # Called when the node enters the scene tree for the first time.
@@ -49,6 +54,7 @@ func open_lamp():
 	lamp_canvas.show();
 
 func _on_sticky_note_pressed() -> void:
+	flip.play()
 	var resource = load("res://dialogues/lamp_interaction.dialogue")
 	done_button.hide()
 	DialogueManager.show_dialogue_balloon(resource, "sticky_check")
@@ -65,6 +71,7 @@ func _on_done_pressed() -> void:
 
 func _on_lamp_string_pressed() -> void:
 	anim.play("lamp_pull")
+	click.play()
 	await anim.animation_finished
 	if lamp_on:
 		lamp_texture.texture = load("res://assets/lamp inspection/lamp_off.png")
@@ -94,6 +101,7 @@ func exit_safe_view():
 	safe_screen.hide()
 
 func open_drawer():
+	drawer_audio.play()
 	drawer.show();
 	
 func rewinding():

@@ -7,6 +7,8 @@ extends CanvasLayer
 @export var trash_window: Control
 @export var trash_code_window: Control
 
+@export var trash_sound: AudioStreamPlayer
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	taxes_window.hide()
@@ -102,6 +104,7 @@ func _on_trash_gui_input(event: InputEvent) -> void:
 
 
 func _on_trash_pressed() -> void:
+	trash_sound.play()
 	if DialogueHandler.trash_unlock:
 		trash_window.show();
 		move_child(trash_window, -1);
@@ -120,4 +123,5 @@ func unlock_trash():
 
 
 func _on_trash_code_make_me_front(arg: String) -> void:
+	trash_sound.play()
 	move_child(trash_code_window, -1)
