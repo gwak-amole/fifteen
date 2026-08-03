@@ -7,8 +7,8 @@ In this game, you're Agent Fifteen. You're in charge with the imprisonment of Al
 |<img width="1440" height="900" alt="Screenshot 2026-07-26 at 00 59 38" src="https://github.com/user-attachments/assets/02f55dbc-e986-438c-80cb-813b280bec33" /> |<img width="1440" height="900" alt="Screenshot 2026-07-26 at 00 36 21" src="https://github.com/user-attachments/assets/b7c576c2-856f-4129-96c9-565168030fab" /> |
 
 ## Links to Play / See Submission
-Here's the link to play: https://gwak-amole.itch.io/fifteen
-Here's the link to the submission page where you can see the results: https://itch.io/jam/gmtk-jam-2026/rate/4823440
+Here's the link to play: https://gwak-amole.itch.io/fifteen <br>
+Here's the link to the submission page where you can see the results: https://itch.io/jam/gmtk-jam-2026/rate/4823440 <br>
 If you like the games I make, feel free to follow me on itch.io too! :D
 
 ## Controls
