@@ -15,7 +15,7 @@ I can't stress this enough, but you must HOLD R to rewind! Tapping shortly isn't
 
 ## Notes about rewinding:
 - You can only rewind twice
-- Each time you rewind, Miller comes home faster (cuz he's onto the fact that you're rewinding)
+- Each time you rewind, Miller comes home faster (he's onto the fact that you're rewinding)
 
 ## Credits:
 - Made with Godot 4
